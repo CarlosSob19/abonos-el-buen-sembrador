@@ -2,13 +2,14 @@
 // Copia solo lo que se publica, minifica CSS y JS con huella en el nombre (caché
 // inmutable), reescribe las referencias y genera las cabeceras de seguridad.
 import { createHash } from 'node:crypto';
-import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync, existsSync } from 'node:fs';
+import { cpSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { transform } from 'esbuild';
 
 const OUT = 'dist';
-rmSync(OUT, { recursive: true, force: true });
+// Se vacía dist/ pero se conserva .vercel (el enlace con el proyecto de Vercel)
 mkdirSync(OUT, { recursive: true });
+for (const entry of readdirSync(OUT)) if (entry !== '.vercel') rmSync(join(OUT, entry), { recursive: true, force: true });
 
 // 1. Archivos estáticos tal cual
 for (const f of ['favicon.ico', 'site.webmanifest', 'robots.txt', 'sitemap.xml']) cpSync(f, join(OUT, f));
@@ -78,6 +79,8 @@ writeFileSync(join(OUT, 'vercel.json'), JSON.stringify({
     { source: '/(.*)', headers: Object.entries(security).map(([key, value]) => ({ key, value })) },
     { source: '/assets/(css|js|vendor|fonts)/(.*)', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
     { source: '/assets/img/(.*)', headers: [{ key: 'Cache-Control', value: 'public, max-age=604800' }] },
+    // La copia en *.vercel.app no se indexa: no debe competir con el dominio real
+    { source: '/(.*)', has: [{ type: 'host', value: '(?<sub>.*)\\.vercel\\.app' }], headers: [{ key: 'X-Robots-Tag', value: 'noindex' }] },
   ],
 }, null, 2));
 // Redirecciones: inactivas hasta decidir dónde vive la tienda (ver docs/datos-pendientes.md)
