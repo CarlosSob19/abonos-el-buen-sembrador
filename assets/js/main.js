@@ -70,6 +70,12 @@
       const p = pinnedProgress(process);
       const layer = p < 0.14 ? 0 : Math.min(4, 1 + Math.floor((p - 0.14) / 0.215));
       if (layer !== lastLayer) { processStage.dataset.layer = String(layer); lastLayer = layer; }
+      // La capa activa deriva con el scroll mientras dura: el escenario nunca queda quieto
+      if (layer > 0 && !reduceMotion.matches) {
+        const local = clamp01((p - 0.14 - (layer - 1) * 0.215) / 0.215);
+        const panel = processStage.querySelector(`[data-layer-panel="${layer}"]`);
+        if (panel) panel.style.translate = `0 ${((0.5 - local) * 36).toFixed(1)}px`;
+      }
       core?.style.setProperty('--core', clamp01((p - 0.14) / 0.86).toFixed(4));
     }
 
@@ -107,6 +113,80 @@
     }
   }
   const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+
+  /* Barridos de imagen: se disparan al entrar y se completan solos (nunca quedan a medias
+     mientras se lee). Solo se arman los que aún no se ven al cargar. */
+  const wipes = [...document.querySelectorAll('[data-reveal]')];
+  if ('IntersectionObserver' in window && !reduceMotion.matches) {
+    // Se observa el contenedor: el navegador cuenta el recorte del propio elemento,
+    // y uno recortado al 100 % nunca "intersecta".
+    const owner = new Map();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        owner.get(entry.target)?.classList.add('is-revealed');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -18% 0px' });
+    wipes.forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+      el.classList.add('is-armed');
+      owner.set(el.parentElement, el);
+      io.observe(el.parentElement);
+    });
+  }
+
+  /* Productos: cada uno se asienta al entrar al carril (cajón que se abre, no diapositiva) */
+  const railItems = products?.getAttribute('data-sc-act') === 'pan' && !reduceMotion.matches
+    ? [...products.querySelectorAll('.product')].map((p) => [p, p.querySelector('.product__media'), p.querySelector('.product__body')])
+    : [];
+  const ease = (t) => 1 - Math.pow(1 - t, 3);
+  function settleRail() {
+    const vw = window.innerWidth;
+    railItems.forEach(([item, media, body]) => {
+      const left = item.getBoundingClientRect().left;
+      // Fuera de pantalla queda en su estado final: solo se anima lo que asoma
+      const t = left >= vw ? 1 : clamp01((vw - left) / (vw * 0.5));
+      const m = ease(t);
+      const b = ease(clamp01(t * 1.25 - 0.2));
+      media.style.opacity = (0.55 + 0.45 * m).toFixed(3);
+      media.style.translate = `0 ${((1 - m) * 32).toFixed(1)}px`;
+      body.style.opacity = (0.55 + 0.45 * b).toFixed(3);
+      body.style.translate = `0 ${((1 - b) * 22).toFixed(1)}px`;
+    });
+  }
+  if (railItems.length) {
+    settleRail();
+    window.addEventListener('scroll', () => requestAnimationFrame(settleRail), { passive: true });
+  }
+
+  /* Hero: profundidad que sigue al puntero (solo ratón, sin movimiento reducido) */
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+  if (hero && fine.matches && !reduceMotion.matches) {
+    const layers = [
+      ['.hero__plate', -0.35],
+      ['.hero__seeds--far', 0.3],
+      ['.hero__subject', 1],
+      ['.hero__seeds--mid', 1.5],
+      ['.hero__seeds--near', 2.6],
+    ].map(([sel, depth]) => [hero.querySelector(sel), depth]).filter(([el]) => el);
+    const target = { x: 0, y: 0 };
+    const cur = { x: 0, y: 0 };
+    let raf = 0;
+    const step = () => {
+      cur.x += (target.x - cur.x) * 0.08;
+      cur.y += (target.y - cur.y) * 0.08;
+      layers.forEach(([el, d]) => { el.style.translate = `${(cur.x * 9 * d).toFixed(2)}px ${(cur.y * 6 * d).toFixed(2)}px`; });
+      raf = Math.abs(target.x - cur.x) + Math.abs(target.y - cur.y) > 0.002 ? requestAnimationFrame(step) : 0;
+    };
+    const kick = () => { if (!raf) raf = requestAnimationFrame(step); };
+    hero.addEventListener('pointermove', (e) => {
+      target.x = (e.clientX / window.innerWidth - 0.5) * 2;
+      target.y = (e.clientY / window.innerHeight - 0.5) * 2;
+      kick();
+    });
+    hero.addEventListener('pointerleave', () => { target.x = 0; target.y = 0; kick(); });
+  }
   update();
   window.addEventListener('scroll', schedule, { passive: true });
   window.addEventListener('resize', schedule);
@@ -218,7 +298,6 @@
       iframe.title = button.dataset.title || 'Video de YouTube';
       iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
       iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-      iframe.allowFullscreen = true;
       button.replaceWith(iframe);
       iframe.focus();
     }, { once: true });

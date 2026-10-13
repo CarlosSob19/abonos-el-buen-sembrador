@@ -5,3 +5,4 @@ strix_runs/
 *.log
 lab/
 graphify-out/
+.playwright-cli/
