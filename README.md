@@ -29,9 +29,12 @@ La tienda, el carrito y el pago siguen en la plataforma actual (Kolau). Los boto
 
 Gramática «Estratos» (scroll-craft): la página baja por un perfil de suelo. Motor: `assets/vendor/scrollcraft/` (sin modificar). Brief y curva emocional: `scrollcraft/builds/el-buen-sembrador/BRIEF.md`. Verificación visual: `node <skill>/scripts/shoot.mjs` con `bypassCSP` (la CSP del sitio bloquea los estilos que inyecta el arnés).
 
+### Hero por capas
+
+`hero-fondo` (tierra con el sujeto retirado y relleno) y `hero-sujeto` (manos y plántula con alfa) se derivan de la foto original `hero-siembra.jpg` con SAM (facebook/sam-vit-large) en la GPU local. Comparten geometría y punto de apoyo, por eso escalan a ritmos distintos sin que las manos floten. El relleno del fondo es borroso: solo asoma unos píxeles alrededor del sujeto durante el movimiento.
+
 ## Pendiente / limitaciones
 
-- **Recorte con alfa de manos y plántula para el hero** (capa de sujeto independiente): pendiente porque la GPU local estaba ocupada. El HTML ya reserva la capa en `.hero__frame`.
 - El arnés mide un «peor píxel» de 1.5:1 bajo el titular del hero en escritorio (granos claros de tierra y borde de una hoja); el contraste medio es 11:1.
 
 - Precios copiados del sitio el 13-10-2026; si cambian en la tienda, actualícelos en `index.html`.

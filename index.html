@@ -17,7 +17,8 @@
   <link rel="icon" type="image/png" href="assets/img/logo-el-buen-sembrador-300.png">
   <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/hanken-grotesk-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/img/hero-siembra.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="assets/img/hero-fondo.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="assets/img/hero-sujeto.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="assets/vendor/scrollcraft/scrollcraft.css">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/boot.js"></script>
@@ -112,15 +113,21 @@
     <section class="hero" id="inicio" data-sc-act="pin" data-sc-span="1.9" aria-labelledby="hero-title">
       <div data-sc-stage class="hero__stage">
         <div class="hero__frame">
+          <!-- Capas derivadas de la foto original hero-siembra.jpg: tierra limpia + recorte con alfa (SAM) -->
           <div class="hero__plate">
             <picture>
-              <source srcset="assets/img/hero-siembra.webp" type="image/webp">
-              <img src="assets/img/hero-siembra.jpg" alt="Dos manos siembran una plántula en tierra abonada" width="1600" height="776" fetchpriority="high" decoding="async">
+              <source srcset="assets/img/hero-fondo.webp" type="image/webp">
+              <img src="assets/img/hero-fondo.jpg" alt="" width="1600" height="776" fetchpriority="high" decoding="async">
             </picture>
           </div>
-          <!-- Capa reservada para el recorte con alfa de manos y plántula (pendiente, ver README) -->
           <div class="hero__scrim" aria-hidden="true"></div>
           <div class="hero__seeds hero__seeds--far" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="hero__subject">
+            <picture>
+              <source srcset="assets/img/hero-sujeto.webp" type="image/webp">
+              <img src="assets/img/hero-sujeto.png" alt="Dos manos siembran una plántula en tierra abonada" width="1600" height="776" fetchpriority="high" decoding="async">
+            </picture>
+          </div>
           <div class="hero__seeds hero__seeds--mid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
           <div class="hero__seeds hero__seeds--near" aria-hidden="true"><i></i><i></i><i></i></div>
         </div>

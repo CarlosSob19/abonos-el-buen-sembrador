@@ -61,7 +61,7 @@ test('cada <img> tiene alt, dimensiones explícitas y decodificación asíncrona
 test('solo el logo y el hero cargan de inmediato; el resto es diferido', () => {
   const eager = tags('img').filter((img) => attr(img, 'loading') !== 'lazy');
   for (const img of eager) {
-    assert.match(attr(img, 'src'), /logo-el-buen-sembrador|hero-siembra/, `debería ser lazy: ${img}`);
+    assert.match(attr(img, 'src'), /logo-el-buen-sembrador|hero-siembra|hero-fondo|hero-sujeto/, `debería ser lazy: ${img}`);
   }
 });
 

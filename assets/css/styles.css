@@ -499,16 +499,25 @@ html:not(.js) [data-sc-stagger] > * { opacity: 1; transform: none; }
   clip-path: inset(calc(var(--exit) * 9svh) calc(var(--exit) * var(--gutter)) calc(var(--exit) * 9svh) calc(var(--exit) * var(--gutter)) round calc(var(--exit) * 44px));
 }
 
-.hero__plate {
+/* Tierra y sujeto comparten el punto de apoyo (donde las manos tocan la tierra):
+   escalan a ritmos distintos sin que las manos floten. */
+.hero__plate,
+.hero__subject {
   position: absolute;
   inset: 0;
-  transform: scale(calc(1.14 - var(--p) * 0.12)) translateY(calc(var(--p) * -2.5%));
-  transform-origin: 50% 70%;
+  transform-origin: var(--anchor-x, 60%) 77%;
   will-change: transform;
 }
-.hero__plate picture, .hero__plate img { width: 100%; height: 100%; }
-.hero__plate img { object-fit: cover; object-position: 8% 60%; animation: plate-in 1600ms var(--ease-out) both; }
+.hero__plate { transform: scale(calc(1.1 - var(--p) * 0.08)); }
+.hero__subject { z-index: 1; transform: scale(calc(1.1 - var(--p) * 0.13)); }
+.hero__plate picture, .hero__plate img,
+.hero__subject picture, .hero__subject img { width: 100%; height: 100%; }
+.hero__plate img,
+.hero__subject img { object-fit: cover; object-position: 8% 60%; }
+.hero__plate img { animation: plate-in 1600ms var(--ease-out) both; }
+.hero__subject img { animation: subject-in 1400ms var(--ease-out) 250ms both; }
 @keyframes plate-in { from { opacity: 0; filter: blur(8px); } }
+@keyframes subject-in { from { opacity: 0; transform: scale(1.035); filter: blur(6px); } }
 
 .hero__scrim {
   position: absolute;
@@ -523,6 +532,7 @@ html:not(.js) [data-sc-stagger] > * { opacity: 1; transform: none; }
 /* Semillas a tres profundidades: la lejana casi quieta, la cercana desenfocada y rápida */
 .hero__seeds { position: absolute; inset: 0; pointer-events: none; will-change: transform; }
 .hero__seeds--far { transform: translateY(calc(var(--p) * 90px)); }
+.hero__seeds--mid, .hero__seeds--near { z-index: 2; }
 .hero__seeds--mid { transform: translateY(calc(var(--p) * 260px)); }
 .hero__seeds--near { transform: translateY(calc(var(--p) * 620px)); filter: blur(2.5px); }
 .hero__seeds i {
@@ -559,7 +569,7 @@ html:not(.js) [data-sc-stagger] > * { opacity: 1; transform: none; }
 
 .hero__copy {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   left: var(--gutter);
   bottom: clamp(2.5rem, 9vh, 7rem);
   width: min(42rem, 44vw);
@@ -585,7 +595,7 @@ html:not(.js) [data-sc-stagger] > * { opacity: 1; transform: none; }
 
 .hero__second {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   left: var(--gutter);
   bottom: clamp(2.5rem, 9vh, 7rem);
   max-width: 12ch;
@@ -1253,7 +1263,10 @@ html:not(.js) [data-sc-stagger] > * { opacity: 1; transform: none; }
   }
 
   .hero__copy { width: auto; right: var(--gutter); bottom: clamp(1.5rem, 5vh, 3rem); }
-  .hero__plate img { object-position: 50% 55%; }
+  .hero__plate img, .hero__subject img { object-position: 49% 100%; }
+  .hero__plate, .hero__subject { --anchor-x: 50%; bottom: auto; height: 56svh; }
+  .hero__plate { -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); }
+  .hero__frame { background: #17100b; }
   .hero__scrim {
     background:
       linear-gradient(to top, rgb(18 14 10 / 0.9) 0%, rgb(18 14 10 / 0.7) 34%, rgb(18 14 10 / 0.2) 62%, transparent 78%),
@@ -1328,8 +1341,8 @@ html:not(.js) [data-sc-stagger] > * { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero__frame { clip-path: none; }
-  .hero__plate, .hero__seeds { transform: none !important; }
-  .hero__plate img, .hero__seeds i { animation: seed-fade 400ms ease both; }
+  .hero__plate, .hero__subject, .hero__seeds { transform: none !important; }
+  .hero__plate img, .hero__subject img, .hero__seeds i { animation: seed-fade 400ms ease both; }
   @keyframes seed-fade { from { opacity: 0; } }
   .process__grounds i { transition: clip-path 0ms, opacity 300ms ease; }
   .strata__layer, .strata__layer[data-layer-panel] { transform: none !important; filter: none !important; transition: opacity 300ms ease; }
