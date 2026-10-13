@@ -2,7 +2,7 @@
 
 **Self-authored under explicit creative delegation.** The client wrote: "quiero que sea mucho más profesional… utilízalo" after approving the first build ("está excelente pero siento que aún está muy básico"). Facts come from the original site (see PRODUCT.md); everything below that is not a quote is an authored decision.
 
-Constraint from the client during the build: **do not use the local GPU / C:\IA right now.** So no new raster generation or AI cutouts this round; the hero subject cutout is deferred.
+Constraint from the client during the build: **do not use the local GPU / C:\IA right now.** So no new raster generation or AI cutouts this round; the hero subject cutout is deferred. **Update (same day):** the GPU was freed and the cutout shipped: `hero-sujeto` (alpha, SAM vit-large) over `hero-fondo` (clean plate), both derived from the original `hero-siembra.jpg`.
 
 ## The eight topics
 
