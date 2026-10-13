@@ -34,7 +34,6 @@
   --paper: #fafaf6;
   --sand: #ede6d8;
   --sand-2: #e3d8c3;
-  --cream: #f4eee3;
   --humus: #2e2219;
   --ink: #26312c;
   --ink-soft: #4a5650;
@@ -219,7 +218,6 @@ html:not(.js) [data-sc-stagger] > * { opacity: 1; transform: none; }
 .btn--lg { min-height: 56px; padding: 0.9rem 1.8rem; font-size: 1.0625rem; }
 .btn--seed { background: var(--seed); color: var(--on-seed); }
 .btn--forest { background: var(--forest); color: var(--paper); }
-.btn--line { border-color: color-mix(in srgb, var(--forest) 45%, transparent); color: var(--forest); }
 .btn--ghost-light { border-color: color-mix(in srgb, var(--on-dark) 32%, transparent); color: var(--on-dark); }
 .btn--glass {
   color: var(--highlight);
@@ -232,7 +230,6 @@ html:not(.js) [data-sc-stagger] > * { opacity: 1; transform: none; }
 @media (hover: hover) and (pointer: fine) {
   .btn--seed:hover { background: var(--seed-hover); }
   .btn--forest:hover { background: var(--field); }
-  .btn--line:hover { background: var(--forest); color: var(--paper); border-color: var(--forest); }
   .btn--ghost-light:hover { background: var(--on-dark); color: var(--forest); border-color: var(--on-dark); }
   .btn--glass:hover { background: rgb(250 250 246 / 0.26); }
 }
@@ -1582,8 +1579,7 @@ html:not(.js) [data-sc-stagger] > * { opacity: 1; transform: none; }
 .notfound { min-height: 100svh; display: grid; place-items: center; background: var(--forest); color: var(--on-dark); }
 .notfound__main { width: min(100% - 2 * var(--gutter), 40rem); padding: 4rem 0; }
 .notfound__brand { display: inline-block; margin-bottom: 2.5rem; }
-.notfound__code { font-family: var(--font-display); font-size: 1rem; font-weight: 600; letter-spacing: 0.04em; color: var(--seed); }
-.notfound__title { margin-top: 0.5rem; font-family: var(--font-display); font-size: clamp(2.6rem, 1.6rem + 4vw, 4.6rem); font-weight: 330; line-height: 0.98; letter-spacing: -0.04em; color: var(--highlight); text-wrap: balance; }
+.notfound__title { font-family: var(--font-display); font-size: clamp(2.6rem, 1.6rem + 4vw, 4.6rem); font-weight: 330; line-height: 0.98; letter-spacing: -0.04em; color: var(--highlight); text-wrap: balance; }
 .notfound__lead { margin-top: 1.25rem; max-width: 40ch; font-size: var(--fs-lead); color: var(--on-dark-soft); }
 .notfound__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
 .notfound__more { margin-top: 2rem; color: var(--on-dark-soft); }

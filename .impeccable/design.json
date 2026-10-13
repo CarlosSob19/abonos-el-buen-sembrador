@@ -1,56 +1,633 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-13T00:00:00Z",
+  "generatedAt": "2026-10-13T23:52:23.115Z",
   "title": "Design System: Abonos El Buen Sembrador",
   "extensions": {
     "colorMeta": {
-      "forest": { "role": "primary", "displayName": "Verde Bosque", "canonical": "#173f32", "tonalRamp": ["#001008", "#012c20", "#21483b", "#3f6759", "#628a7b", "#85af9f", "#abd6c5", "#cefae9"] },
-      "forest-deep": { "role": "primary", "displayName": "Bosque Profundo", "canonical": "#0f2c23", "tonalRamp": ["#001009", "#0d2a21", "#2a473d", "#47655a", "#69887d", "#8dada1", "#b2d3c7", "#d6f8eb"] },
-      "field": { "role": "primary", "displayName": "Verde Campo", "canonical": "#367b4b", "tonalRamp": ["#001102", "#012d12", "#074d24", "#286e3f", "#4d9260", "#72b784", "#98dea9", "#c8ffd4"] },
-      "seed": { "role": "secondary", "displayName": "Naranja Semilla", "canonical": "#e8892a", "tonalRamp": ["#1a0500", "#391b00", "#603302", "#8a4c06", "#bc6800", "#e98a2b", "#fcbb86", "#feeadc"] },
-      "seed-deep": { "role": "secondary", "displayName": "Naranja Tostado", "canonical": "#c96f14", "tonalRamp": ["#1b0400", "#3a1b00", "#613101", "#8c4a04", "#ba681b", "#e78b3b", "#feba86", "#ffeadb"] },
-      "seed-hover": { "role": "secondary", "displayName": "Naranja Encendido", "canonical": "#f09a40", "tonalRamp": ["#190500", "#391c00", "#5d3505", "#864f0c", "#b76c0c", "#e38e31", "#ffba7b", "#ffead9"] },
-      "on-seed": { "role": "secondary", "displayName": "Tierra Tostada", "canonical": "#1e140c", "tonalRamp": ["#120903", "#2c2219", "#493d34", "#675b51", "#8b7d73", "#b0a297", "#d6c7bc", "#faebe0"] },
-      "humus": { "role": "tertiary", "displayName": "Humus", "canonical": "#2e2219", "tonalRamp": ["#32251a", "#3d2d20", "#4b3828", "#5b4532", "#8c7d72", "#b1a196", "#d7c7bb", "#fcebdf"] },
-      "paper": { "role": "neutral", "displayName": "Papel Cálido", "canonical": "#fafaf6", "tonalRamp": ["#0b0b09", "#242421", "#40403d", "#5e5e5a", "#80807d", "#a5a5a1", "#cbcbc7", "#efefeb"] },
-      "sand": { "role": "neutral", "displayName": "Arena", "canonical": "#ede6d8", "tonalRamp": ["#0f0a03", "#292319", "#453f34", "#635d51", "#867f73", "#aaa497", "#d1cabc", "#f5eee0"] },
-      "leaf": { "role": "neutral", "displayName": "Hoja", "canonical": "#e8f0e6", "tonalRamp": ["#080d07", "#20261f", "#3c423a", "#596057", "#7b837a", "#a0a79e", "#c5cdc3", "#e9f1e7"] },
-      "ink": { "role": "neutral", "displayName": "Tinta", "canonical": "#26312c", "tonalRamp": ["#050e09", "#1c2722", "#37433e", "#55615b", "#77847e", "#9ba8a2", "#c1cec8", "#e4f2ec"] },
-      "ink-soft": { "role": "neutral", "displayName": "Tinta Suave", "canonical": "#4a5650", "tonalRamp": ["#050e09", "#1c2722", "#37433d", "#55615b", "#77847d", "#9ba8a2", "#c1cec7", "#e4f3eb"] },
-      "on-dark": { "role": "neutral", "displayName": "Crema sobre oscuro", "canonical": "#f3eee3", "tonalRamp": ["#0e0b05", "#27241b", "#433f37", "#615d54", "#848076", "#a9a49a", "#cfcabf", "#f3eee3"] },
-      "on-dark-soft": { "role": "neutral", "displayName": "Crema apagada", "canonical": "#cfc6b4", "tonalRamp": ["#100a01", "#2a2315", "#463f30", "#655d4d", "#887f6f", "#aca492", "#d3cab7", "#f7eedb"] },
-      "cream-highlight": { "role": "neutral", "displayName": "Crema luz", "canonical": "#fff8ec", "tonalRamp": ["#0f0a04", "#28231a", "#443f35", "#635d53", "#867f75", "#aaa499", "#d0cabe", "#f5eee2"] },
-      "rule": { "role": "neutral", "displayName": "Filete", "canonical": "#26312c26" },
-      "rule-dark": { "role": "neutral", "displayName": "Filete oscuro", "canonical": "#f3eee326" }
+      "forest": {
+        "role": "primary",
+        "displayName": "Verde Bosque",
+        "canonical": "#173f32",
+        "oklch": "oklch(33.5% 0.051 169.1)",
+        "tonalRamp": [
+          "#000f09",
+          "#022d21",
+          "#244b3e",
+          "#446b5d",
+          "#658d7e",
+          "#87b1a1",
+          "#abd6c5",
+          "#cefae9"
+        ]
+      },
+      "forest-deep": {
+        "role": "primary",
+        "displayName": "Bosque Profundo",
+        "canonical": "#0f2c23",
+        "oklch": "oklch(26.8% 0.039 170.3)",
+        "tonalRamp": [
+          "#000f09",
+          "#0e2b22",
+          "#2c493f",
+          "#4b695e",
+          "#6c8b80",
+          "#8fafa2",
+          "#b2d3c7",
+          "#d6f8eb"
+        ]
+      },
+      "field": {
+        "role": "primary",
+        "displayName": "Verde Campo",
+        "canonical": "#367b4b",
+        "oklch": "oklch(52.5% 0.103 151.3)",
+        "tonalRamp": [
+          "#001003",
+          "#022e13",
+          "#0b5027",
+          "#2c7243",
+          "#509563",
+          "#73b985",
+          "#98dea9",
+          "#c8ffd4"
+        ]
+      },
+      "field-ink": {
+        "role": "primary",
+        "displayName": "Verde Campo Legible",
+        "canonical": "#2b6a3d",
+        "oklch": "oklch(47.1% 0.097 150.4)",
+        "tonalRamp": [
+          "#001003",
+          "#022e12",
+          "#0b5025",
+          "#327144",
+          "#559464",
+          "#78b886",
+          "#9cddaa",
+          "#c7ffd2"
+        ]
+      },
+      "seed": {
+        "role": "secondary",
+        "displayName": "Naranja Semilla",
+        "canonical": "#e8892a",
+        "oklch": "oklch(71.7% 0.154 59.9)",
+        "tonalRamp": [
+          "#170600",
+          "#3a1d01",
+          "#633505",
+          "#8e500e",
+          "#bf6b07",
+          "#eb8b2d",
+          "#fcbb86",
+          "#feeadc"
+        ]
+      },
+      "seed-deep": {
+        "role": "secondary",
+        "displayName": "Naranja Tostado",
+        "canonical": "#c96f14",
+        "oklch": "oklch(63.1% 0.146 57.7)",
+        "tonalRamp": [
+          "#180600",
+          "#3b1c00",
+          "#643404",
+          "#904e0d",
+          "#c26903",
+          "#e98c3c",
+          "#feba86",
+          "#ffeadb"
+        ]
+      },
+      "seed-hover": {
+        "role": "secondary",
+        "displayName": "Naranja Encendido",
+        "canonical": "#f09a40",
+        "oklch": "oklch(75.8% 0.145 63.3)",
+        "tonalRamp": [
+          "#170700",
+          "#381e02",
+          "#603708",
+          "#8e5100",
+          "#ba6f12",
+          "#e59033",
+          "#ffba7b",
+          "#ffead9"
+        ]
+      },
+      "on-seed": {
+        "role": "secondary",
+        "displayName": "Tierra Tostada",
+        "canonical": "#1e140c",
+        "oklch": "oklch(20.2% 0.022 59.7)",
+        "tonalRamp": [
+          "#120903",
+          "#2d231a",
+          "#4c4037",
+          "#6c5f55",
+          "#8e8076",
+          "#b1a399",
+          "#d6c7bc",
+          "#faebe0"
+        ]
+      },
+      "humus": {
+        "role": "tertiary",
+        "displayName": "Humus",
+        "canonical": "#2e2219",
+        "oklch": "oklch(26.3% 0.024 58.3)",
+        "tonalRamp": [
+          "#130803",
+          "#2e2219",
+          "#4d3f36",
+          "#6d5f54",
+          "#8f8075",
+          "#b2a397",
+          "#d7c7bb",
+          "#fcebdf"
+        ]
+      },
+      "stratum-0": {
+        "role": "tertiary",
+        "displayName": "Estrato base",
+        "canonical": "#33261b",
+        "oklch": "oklch(28.0% 0.027 61.6)",
+        "tonalRamp": [
+          "#1d150e",
+          "#2b2016",
+          "#33261b",
+          "#433223",
+          "#57412e",
+          "#6b5038",
+          "#8a6a4b",
+          "#e3d8c3"
+        ]
+      },
+      "stratum-1": {
+        "role": "tertiary",
+        "displayName": "Estrato 1",
+        "canonical": "#6b5038",
+        "oklch": "oklch(45.4% 0.051 62.6)",
+        "tonalRamp": [
+          "#1d150e",
+          "#2b2016",
+          "#33261b",
+          "#433223",
+          "#57412e",
+          "#6b5038",
+          "#8a6a4b",
+          "#e3d8c3"
+        ]
+      },
+      "stratum-2": {
+        "role": "tertiary",
+        "displayName": "Estrato 2",
+        "canonical": "#57412e",
+        "oklch": "oklch(39.4% 0.043 61.9)",
+        "tonalRamp": [
+          "#1d150e",
+          "#2b2016",
+          "#33261b",
+          "#433223",
+          "#57412e",
+          "#6b5038",
+          "#8a6a4b",
+          "#e3d8c3"
+        ]
+      },
+      "stratum-3": {
+        "role": "tertiary",
+        "displayName": "Estrato 3",
+        "canonical": "#433223",
+        "oklch": "oklch(33.2% 0.035 62.6)",
+        "tonalRamp": [
+          "#1d150e",
+          "#2b2016",
+          "#33261b",
+          "#433223",
+          "#57412e",
+          "#6b5038",
+          "#8a6a4b",
+          "#e3d8c3"
+        ]
+      },
+      "stratum-4": {
+        "role": "tertiary",
+        "displayName": "Estrato 4",
+        "canonical": "#2b2016",
+        "oklch": "oklch(25.4% 0.025 63.6)",
+        "tonalRamp": [
+          "#1d150e",
+          "#2b2016",
+          "#33261b",
+          "#433223",
+          "#57412e",
+          "#6b5038",
+          "#8a6a4b",
+          "#e3d8c3"
+        ]
+      },
+      "sprout": {
+        "role": "tertiary",
+        "displayName": "Brote",
+        "canonical": "#9fd3a8",
+        "oklch": "oklch(81.9% 0.081 149.6)",
+        "tonalRamp": [
+          "#001002",
+          "#002f0f",
+          "#1d4e2a",
+          "#3e6f49",
+          "#5f9169",
+          "#82b58b",
+          "#a6daaf",
+          "#c9fed2"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel Cálido",
+        "canonical": "#fafaf6",
+        "oklch": "oklch(98.4% 0.005 106.5)",
+        "tonalRamp": [
+          "#0b0b09",
+          "#252522",
+          "#43433f",
+          "#62625f",
+          "#838380",
+          "#a6a6a3",
+          "#cbcbc7",
+          "#efefeb"
+        ]
+      },
+      "leaf": {
+        "role": "neutral",
+        "displayName": "Hoja",
+        "canonical": "#e8f0e6",
+        "oklch": "oklch(94.6% 0.016 139.4)",
+        "tonalRamp": [
+          "#080d07",
+          "#212720",
+          "#3e453d",
+          "#5d645c",
+          "#7e867d",
+          "#a1a99f",
+          "#c5cdc3",
+          "#e9f1e7"
+        ]
+      },
+      "sand": {
+        "role": "neutral",
+        "displayName": "Arena",
+        "canonical": "#ede6d8",
+        "oklch": "oklch(92.7% 0.020 84.6)",
+        "tonalRamp": [
+          "#0f0a03",
+          "#2a251a",
+          "#474236",
+          "#676155",
+          "#898276",
+          "#aca598",
+          "#d1cabc",
+          "#f5eee0"
+        ]
+      },
+      "sand-2": {
+        "role": "neutral",
+        "displayName": "Arena 2",
+        "canonical": "#e3d8c3",
+        "oklch": "oklch(88.5% 0.031 83.6)",
+        "tonalRamp": [
+          "#110a00",
+          "#2c2413",
+          "#4a4130",
+          "#6a614e",
+          "#8c826f",
+          "#afa591",
+          "#d4c9b5",
+          "#f8edd8"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "#26312c",
+        "oklch": "oklch(30.1% 0.017 165.9)",
+        "tonalRamp": [
+          "#050e09",
+          "#1d2823",
+          "#3a4540",
+          "#59655f",
+          "#7a8781",
+          "#9caaa3",
+          "#c1cec8",
+          "#e4f2ec"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Tinta Suave",
+        "canonical": "#4a5650",
+        "oklch": "oklch(44.1% 0.018 164.0)",
+        "tonalRamp": [
+          "#050e09",
+          "#1d2823",
+          "#3a4640",
+          "#59655f",
+          "#7a8780",
+          "#9caaa3",
+          "#c1cec7",
+          "#e4f3eb"
+        ]
+      },
+      "on-dark": {
+        "role": "neutral",
+        "displayName": "Crema sobre oscuro",
+        "canonical": "#f3eee3",
+        "oklch": "oklch(95.0% 0.016 86.4)",
+        "tonalRamp": [
+          "#0e0b05",
+          "#29251d",
+          "#464239",
+          "#666158",
+          "#878379",
+          "#aaa69b",
+          "#cfcabf",
+          "#f3eee3"
+        ]
+      },
+      "on-dark-soft": {
+        "role": "neutral",
+        "displayName": "Crema apagada",
+        "canonical": "#d6cdbb",
+        "oklch": "oklch(85.1% 0.026 84.6)",
+        "tonalRamp": [
+          "#100a01",
+          "#2b2416",
+          "#494132",
+          "#696151",
+          "#8b8272",
+          "#aea594",
+          "#d3cab8",
+          "#f7eedb"
+        ]
+      },
+      "highlight": {
+        "role": "neutral",
+        "displayName": "Crema luz",
+        "canonical": "#fff8ec",
+        "oklch": "oklch(98.1% 0.018 81.3)",
+        "tonalRamp": [
+          "#0f0a04",
+          "#2a241c",
+          "#474238",
+          "#676157",
+          "#898278",
+          "#aca59a",
+          "#d0cabe",
+          "#f5eee2"
+        ]
+      },
+      "error": {
+        "role": "neutral",
+        "displayName": "Error (tierra roja)",
+        "canonical": "#a5321c",
+        "oklch": "oklch(48.7% 0.155 32.9)",
+        "tonalRamp": [
+          "#200000",
+          "#4b0500",
+          "#7d1300",
+          "#a8351f",
+          "#cf5942",
+          "#f77d64",
+          "#feb6a7",
+          "#ffe9e4"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Filete",
+        "canonical": "#26312c24"
+      },
+      "rule-dark": {
+        "role": "neutral",
+        "displayName": "Filete oscuro",
+        "canonical": "#f3eee326"
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Solo el titular del héroe; el cierre de contacto usa una variante mayor (330, hasta 6rem, -0.04em)." },
-      "headline": { "displayName": "Headline", "purpose": "Título de cada sección, con text-wrap: balance." },
-      "title": { "displayName": "Title", "purpose": "Nombre de producto, producto recomendado, cultivos, tradición; variante menor en estratos y pestañas." },
-      "lead": { "displayName": "Lead", "purpose": "Entradilla del héroe y del contacto, 36 a 46ch." },
-      "body": { "displayName": "Body", "purpose": "Texto corrido, 52 a 64ch." },
-      "label": { "displayName": "Label", "purpose": "Botones, chips, categoría de producto, datos del héroe. Caja de oración, nunca mayúsculas sostenidas." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titular del héroe; variantes en el segundo enunciado del héroe, los titulares de las capas del proceso (340, hasta 4.8rem) y la 404."
+      },
+      "display-close": {
+        "displayName": "Display de cierre",
+        "purpose": "Solo el titular del cierre (\"Hablemos de su cultivo\"), bookend del recorrido."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Título de cada sección, con text-wrap: balance; 360 sobre el proceso oscuro."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Nombre de producto, producto recomendado, tradición; variantes menores en pestañas, preguntas frecuentes y menú móvil."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Entradillas del héroe, del cierre y de las capas del proceso, 34 a 44ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido, 50 a 60ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Botones, chips, rótulos de campo, categoría de producto. Caja de oración, nunca mayúsculas sostenidas."
+      }
     },
     "shadows": [
-      { "name": "seed", "value": "0 2px 6px rgb(30 20 12 / 0.25)", "purpose": "Asienta cada semilla sobre la fotografía." },
-      { "name": "inset-photo", "value": "0 18px 40px -18px rgb(38 49 44 / 0.45)", "purpose": "Foto de uso montada sobre la esquina de una lámina de producto, con marco papel de 6px." },
-      { "name": "float", "value": "0 10px 28px -10px rgb(30 20 12 / 0.55)", "purpose": "Solo el botón flotante de WhatsApp en móvil." }
+      {
+        "name": "seed",
+        "value": "0 2px 6px rgb(18 14 10 / 0.35)",
+        "purpose": "Asienta cada semilla del héroe; el medidor usa rgb(30 20 12 / 0.3)."
+      },
+      {
+        "name": "answer-plate",
+        "value": "0 1px 0 rgb(38 49 44 / 0.04), 0 24px 48px -32px rgb(38 49 44 / 0.35)",
+        "purpose": "Panel de necesidades; el formulario de cotización usa 0 30px 60px -40px rgb(38 49 44 / 0.4)."
+      },
+      {
+        "name": "inset-photo",
+        "value": "0 18px 40px -18px rgb(38 49 44 / 0.45)",
+        "purpose": "Foto de uso montada sobre la esquina de una lámina de producto, con marco hoja de 6px."
+      },
+      {
+        "name": "float",
+        "value": "0 10px 28px -10px rgb(30 20 12 / 0.55)",
+        "purpose": "WhatsApp flotante y botón de reproducción de video."
+      },
+      {
+        "name": "brand-plate",
+        "value": "0 6px 18px -10px rgb(30 20 12 / 0.45)",
+        "purpose": "Placa de papel del logotipo sobre el material del encabezado."
+      },
+      {
+        "name": "drawer",
+        "value": "0 24px 48px -24px rgb(15 20 16 / 0.5)",
+        "purpose": "Menú móvil sobre el contenido."
+      },
+      {
+        "name": "hero-text",
+        "value": "text-shadow: 0 2px 28px rgb(14 11 8 / 0.55)",
+        "purpose": "Solo texto sobre la foto del héroe."
+      },
+      {
+        "name": "header-edge",
+        "value": "linear-gradient(rgb(38 49 44 / 0.07), transparent), 18px",
+        "purpose": "Desvanecido bajo el encabezado claro donde el contenido toca el material."
+      }
     ],
     "motion": [
-      { "name": "ease-out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Curva por defecto: caída de semillas, revelados, hover de flechas y video, presión de botón." },
-      { "name": "ease-in-out", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "Transiciones simétricas." },
-      { "name": "ease-drawer", "value": "cubic-bezier(0.32, 0.72, 0, 1)", "purpose": "Entrada del menú móvil (300ms)." },
-      { "name": "seed-fall", "value": "1100ms ease-out, delay 350ms + i*70ms", "purpose": "Semillas que caen 48px girando y se asientan sobre la foto del héroe." },
-      { "name": "reveal", "value": "700ms ease-out, translateY(18px), stagger 60ms (máx. 4)", "purpose": "Revelado único al scroll, solo bajo el pliegue; visible sin JS." },
-      { "name": "state", "value": "200ms ease", "purpose": "Cambios de color de botones, chips, navegación y pestañas." },
-      { "name": "press", "value": "scale(0.97) 160ms ease-out", "purpose": "Respuesta al presionar un botón." },
-      { "name": "reduced-motion", "value": "prefers-reduced-motion: reduce", "purpose": "Sin scroll suave; semillas y revelados solo por fundido de opacidad; panel y menú sin desplazamiento; sin escalas de hover ni presión." }
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Curva por defecto: semillas, entradas del héroe, capas del proceso, acordeón, presión."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "purpose": "Marcador-semilla que viaja entre pestañas de necesidades (380ms)."
+      },
+      {
+        "name": "ease-drawer",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "Menú móvil (300ms), barridos de imagen (1100ms), suelos del proceso (750ms)."
+      },
+      {
+        "name": "hero-entry",
+        "value": "plate-in 1800ms / subject-in 1600ms ease-out",
+        "purpose": "Tierra y sujeto entran con un leve zoom (1.045 y 1.06)."
+      },
+      {
+        "name": "seed-fall",
+        "value": "1200ms ease-out, delay 500ms + i*70ms, desde translateY(-60px) rotate(-50deg)",
+        "purpose": "Semillas del héroe en tres planos."
+      },
+      {
+        "name": "hero-scroll",
+        "value": "tierra scale 1.1 a 1.02, sujeto 1.1 a 0.97; semillas translateY 90 / 260 / 620px",
+        "purpose": "Profundidad por scroll con punto de apoyo compartido."
+      },
+      {
+        "name": "hero-exit",
+        "value": "clip-path: inset(9svh gutter) round 44px en el último 40%",
+        "purpose": "La escena se recorta hacia una lámina redondeada al salir."
+      },
+      {
+        "name": "pointer-depth",
+        "value": "lerp 0.08; ±9px x / ±6px y por factor (-0.35, 0.3, 1, 1.5, 2.6)",
+        "purpose": "Capas del héroe siguen al puntero; solo puntero fino y sin movimiento reducido."
+      },
+      {
+        "name": "image-wipe",
+        "value": "clip-path 1100ms ease-drawer + scale 1.08 a 1 en 1400ms ease-out",
+        "purpose": "Barrido completo al entrar, solo para imágenes fuera de la primera pantalla."
+      },
+      {
+        "name": "rail-settle",
+        "value": "opacity 0.55 a 1, translateY 32px (imagen) / 22px (texto), curva cúbica",
+        "purpose": "Cada producto se asienta al asomar en el carril."
+      },
+      {
+        "name": "panel-in",
+        "value": "260ms ease-out, translateY(6px) + blur(4px)",
+        "purpose": "Entrada del panel de necesidades."
+      },
+      {
+        "name": "stratum-ground",
+        "value": "clip-path inset(100% 0 0 0) a inset(0), 750ms ease-drawer",
+        "purpose": "Cada suelo nuevo del proceso cubre al anterior desde abajo."
+      },
+      {
+        "name": "stratum-layer",
+        "value": "opacity 420ms, transform 800ms ease-out; entra +56px, se entierra -56px; deriva ±18px",
+        "purpose": "Capa activa del proceso."
+      },
+      {
+        "name": "core-fill",
+        "value": "scaleY(--core) de 0 a 1",
+        "purpose": "Muestra de suelo que se llena con el progreso del proceso."
+      },
+      {
+        "name": "sprout-draw",
+        "value": "stroke-dashoffset: tallo entre p -0.1 y 0.45, hojas entre p 0.25 y 0.7",
+        "purpose": "Brote que se dibuja con el scroll en el cierre."
+      },
+      {
+        "name": "faq",
+        "value": "::details-content block-size 320ms ease-out; más/menos rotate(135deg) 300ms",
+        "purpose": "Acordeón de preguntas frecuentes."
+      },
+      {
+        "name": "tone",
+        "value": "300ms ease",
+        "purpose": "Cambio de tono del encabezado y del medidor."
+      },
+      {
+        "name": "state",
+        "value": "200ms ease",
+        "purpose": "Color de botones, chips, navegación, pestañas."
+      },
+      {
+        "name": "press",
+        "value": "scale(0.97), 100 a 160ms ease-out",
+        "purpose": "Presión de botón."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Sin scroll suave ni recorte de salida; héroe sin escala ni puntero, entradas por fundido; suelos y capas solo por opacidad; sin deriva ni desplazamientos; brote completo; acordeón sin animación."
+      },
+      {
+        "name": "reduced-transparency",
+        "value": "prefers-reduced-transparency: reduce",
+        "purpose": "Encabezado y leyendas sólidos en papel; botón de cristal sólido oscuro."
+      },
+      {
+        "name": "more-contrast",
+        "value": "prefers-contrast: more",
+        "purpose": "Encabezado sólido con filete tinta; botón de cristal en bosque profundo con filete crema luz."
+      }
     ],
     "breakpoints": [
-      { "name": "sm", "value": "520px" },
-      { "name": "md", "value": "900px" },
-      { "name": "nav", "value": "1080px" },
-      { "name": "max", "value": "1280px" }
+      {
+        "name": "sm",
+        "value": "520px"
+      },
+      {
+        "name": "md",
+        "value": "900px"
+      },
+      {
+        "name": "nav",
+        "value": "1140px"
+      },
+      {
+        "name": "gauge",
+        "value": "1180px"
+      },
+      {
+        "name": "max",
+        "value": "1280px"
+      },
+      {
+        "name": "short-desktop",
+        "value": "(max-height: 720px) and (min-width: 901px)"
+      },
+      {
+        "name": "short-phone",
+        "value": "(max-width: 900px) and (max-height: 760px)"
+      }
     ]
   },
   "components": [
@@ -58,41 +635,33 @@
       "name": "Botón semilla (principal)",
       "kind": "button",
       "refersTo": "button-seed",
-      "description": "La acción principal de cada región (WhatsApp, ver productos). Una por región.",
+      "description": "La acción principal de cada región (ver productos, WhatsApp, enviar cotización). Una por región.",
       "html": "<a class=\"ds-btn ds-btn-seed\" href=\"#\">Escribir por WhatsApp</a>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55em; min-height: 48px; padding: 0.75rem 1.4rem; border-radius: 999px; border: 1px solid transparent; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; font-size: 1rem; line-height: 1.2; text-decoration: none; white-space: nowrap; transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; } .ds-btn-seed { background: #e8892a; color: #1e140c; } .ds-btn-seed:hover { background: #f09a40; }"
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55em; min-height: 48px; padding: 0.75rem 1.4rem; border-radius: 999px; border: 1px solid transparent; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; font-size: 1rem; line-height: 1.2; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; } .ds-btn-seed { background: #e8892a; color: #1e140c; } .ds-btn-seed:hover { background: #f09a40; }"
     },
     {
       "name": "Botón bosque",
       "kind": "button",
       "refersTo": "button-forest",
-      "description": "Compra en la tienda en línea desde cada fila de producto.",
-      "html": "<a class=\"ds-btn-forest\" href=\"#\">Comprar en la tienda</a>",
-      "css": ".ds-btn-forest { display: inline-flex; align-items: center; min-height: 48px; padding: 0.75rem 1.4rem; border-radius: 999px; border: 1px solid transparent; background: #173f32; color: #fafaf6; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; font-size: 1rem; text-decoration: none; transition: background-color 200ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn-forest:hover { background: #367b4b; } .ds-btn-forest:active { transform: scale(0.97); } .ds-btn-forest:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; }"
-    },
-    {
-      "name": "Botón línea",
-      "kind": "button",
-      "refersTo": "button-line",
-      "description": "Acción secundaria sobre fondo claro; se rellena de bosque al hover.",
-      "html": "<a class=\"ds-btn-line\" href=\"#\">Contáctanos</a>",
-      "css": ".ds-btn-line { display: inline-flex; align-items: center; min-height: 48px; padding: 0.75rem 1.4rem; border-radius: 999px; border: 1px solid color-mix(in srgb, #173f32 45%, transparent); background: transparent; color: #173f32; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; font-size: 1rem; text-decoration: none; transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease; } .ds-btn-line:hover { background: #173f32; color: #fafaf6; border-color: #173f32; } .ds-btn-line:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; }"
+      "description": "Compra en la tienda desde cada producto.",
+      "html": "<a class=\"ds-btn ds-btn-forest\" href=\"#\">Comprar en la tienda</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55em; min-height: 48px; padding: 0.75rem 1.4rem; border-radius: 999px; border: 1px solid transparent; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; font-size: 1rem; line-height: 1.2; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; } .ds-btn-forest { background: #173f32; color: #fafaf6; } .ds-btn-forest:hover { background: #367b4b; }"
     },
     {
       "name": "Botón fantasma claro",
       "kind": "button",
       "refersTo": "button-ghost-light",
-      "description": "Acción secundaria sobre bosque o humus (llamar).",
-      "html": "<div style=\"background:#173f32;padding:24px\"><a class=\"ds-btn-ghost\" href=\"#\">Llamar al 313 767 1300</a></div>",
-      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; min-height: 48px; padding: 0.75rem 1.4rem; border-radius: 999px; border: 1px solid #f3eee326; color: #f3eee3; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; font-size: 1rem; text-decoration: none; transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease; } .ds-btn-ghost:hover { background: #f3eee3; color: #173f32; border-color: #f3eee3; } .ds-btn-ghost:focus-visible { outline: 2px solid #e8892a; outline-offset: 3px; }"
+      "description": "Acción secundaria sobre suelos oscuros (cierre, 404).",
+      "html": "<div style=\"background:#173f32;padding:24px\"><a class=\"ds-btn ds-btn-ghost\" href=\"#\">Llamar al 313 767 1300</a></div>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55em; min-height: 48px; padding: 0.75rem 1.4rem; border-radius: 999px; border: 1px solid transparent; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; font-size: 1rem; line-height: 1.2; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; } .ds-btn-ghost { color: #f3eee3; border-color: rgb(243 238 227 / 0.32); } .ds-btn-ghost:hover { background: #f3eee3; color: #173f32; border-color: #f3eee3; } .ds-btn-ghost:focus-visible { outline-color: #e8892a; }"
     },
     {
-      "name": "Link con flecha",
-      "kind": "custom",
-      "refersTo": "link-arrow",
-      "description": "Enlace secundario junto a un botón; chevrón dibujado que avanza al hover.",
-      "html": "<a class=\"ds-link-arrow\" href=\"#\">Pedir por WhatsApp</a>",
-      "css": ".ds-link-arrow { display: inline-flex; align-items: center; gap: 0.45em; min-height: 44px; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; color: #173f32; text-decoration: underline; text-underline-offset: 0.2em; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); } .ds-link-arrow::after { content: \"\"; width: 0.55em; height: 0.55em; border-top: 1.8px solid currentColor; border-right: 1.8px solid currentColor; transform: rotate(45deg); transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-link-arrow:hover { text-decoration-color: currentColor; } .ds-link-arrow:hover::after { transform: translateX(3px) rotate(45deg); } .ds-link-arrow:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; border-radius: 6px; }"
+      "name": "Botón de cristal",
+      "kind": "button",
+      "refersTo": "button-glass",
+      "description": "Acción secundaria solo sobre la foto del héroe; material translúcido con versión sólida.",
+      "html": "<div style=\"background:linear-gradient(135deg,#6b5038,#173f32);padding:32px\"><a class=\"ds-btn ds-btn-glass\" href=\"#\">Contáctanos</a></div>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55em; min-height: 48px; padding: 0.75rem 1.4rem; border-radius: 999px; border: 1px solid transparent; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; font-size: 1rem; line-height: 1.2; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; } .ds-btn-glass { min-height: 56px; padding: 0.9rem 1.8rem; font-size: 1.0625rem; color: #fff8ec; background: rgb(250 250 246 / 0.14); border-color: rgb(255 255 255 / 0.32); -webkit-backdrop-filter: blur(14px) saturate(160%); backdrop-filter: blur(14px) saturate(160%); } .ds-btn-glass:hover { background: rgb(250 250 246 / 0.26); } .ds-btn-glass:focus-visible { outline-color: #e8892a; } @media (prefers-reduced-transparency: reduce) { .ds-btn-glass { background: rgb(15 20 16 / 0.6); -webkit-backdrop-filter: none; backdrop-filter: none; } }"
     },
     {
       "name": "Chip de categoría",
@@ -100,74 +669,130 @@
       "refersTo": "chip",
       "description": "Pastilla con filete que enlaza a una categoría de la tienda.",
       "html": "<a class=\"ds-chip\" href=\"#\">Categoría Abono</a>",
-      "css": ".ds-chip { display: inline-flex; align-items: center; min-height: 40px; padding: 0.4rem 1rem; border-radius: 999px; border: 1px solid #26312c26; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-size: 0.9375rem; font-weight: 600; color: #173f32; text-decoration: none; transition: background-color 200ms ease, border-color 200ms ease; } .ds-chip:hover { background: #e8f0e6; border-color: #367b4b; } .ds-chip:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; }"
+      "css": ".ds-chip { display: inline-flex; align-items: center; min-height: 44px; padding: 0.4rem 1rem; border-radius: 999px; border: 1px solid #26312c24; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-size: 0.9375rem; font-weight: 600; color: #173f32; text-decoration: none; transition: background-color 200ms ease, border-color 200ms ease; } .ds-chip:hover { background: #e8f0e6; border-color: #367b4b; } .ds-chip:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; }"
     },
     {
-      "name": "Navegación",
+      "name": "Campo de formulario",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Campo de la cotización: rótulo encima, foco verde campo, estado de error en tierra roja.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-n\">Nombre</label><input id=\"ds-n\" type=\"text\" placeholder=\"Su nombre\"></div><div class=\"ds-field\"><label for=\"ds-m\">Municipio</label><input id=\"ds-m\" type=\"text\" aria-invalid=\"true\"><p class=\"ds-field__error\">Indique dónde está su cultivo.</p></div>",
+      "css": ".ds-field { display: grid; gap: 0.4rem; max-width: 360px; margin-bottom: 1rem; font-family: \"Hanken Grotesk\", system-ui, sans-serif; } .ds-field label { font-size: 0.9375rem; font-weight: 600; color: #26312c; } .ds-field input { min-height: 50px; padding: 0.75rem 0.95rem; border: 1px solid color-mix(in srgb, #26312c 22%, transparent); border-radius: 14px; background: #fff; color: #26312c; font: inherit; font-size: 16px; transition: border-color 160ms ease, box-shadow 160ms ease; } .ds-field input::placeholder { color: #6d756f; } .ds-field input:focus-visible { outline: none; border-color: #367b4b; box-shadow: 0 0 0 3px rgb(54 123 75 / 0.22); } .ds-field input[aria-invalid=\"true\"] { border-color: #a5321c; } .ds-field__error { margin: 0; font-size: 0.875rem; font-weight: 600; color: #a5321c; }"
+    },
+    {
+      "name": "Encabezado de material",
       "kind": "nav",
-      "refersTo": "nav-link-active",
-      "description": "Enlaces en pastilla; sección activa y hover con fondo hoja.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"true\">Nosotros</a><a href=\"#\">Productos</a><a href=\"#\">Proceso</a></nav>",
-      "css": ".ds-nav { display: flex; gap: 0.25rem; } .ds-nav a { display: block; padding: 0.55rem 0.8rem; border-radius: 999px; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 550; font-size: 0.9875rem; color: #26312c; text-decoration: none; transition: background-color 200ms ease, color 200ms ease; } .ds-nav a[aria-current=\"true\"], .ds-nav a:hover { background: #e8f0e6; color: #173f32; } .ds-nav a:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; }"
+      "refersTo": "header-material",
+      "description": "Encabezado translúcido con desvanecido inferior; enlaces en pastilla con activo verde campo al 12 %.",
+      "html": "<div style=\"background:linear-gradient(#ede6d8,#fafaf6);padding-bottom:40px\"><header class=\"ds-header\"><nav><a href=\"#\" aria-current=\"true\">Nosotros</a><a href=\"#\">Productos</a><a href=\"#\">Proceso</a></nav></header></div>",
+      "css": ".ds-header { position: relative; display: flex; align-items: center; height: 76px; padding: 0 1.5rem; color: #26312c; background: rgb(250 250 246 / 0.72); -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%); } .ds-header::after { content: \"\"; position: absolute; inset: 100% 0 auto 0; height: 18px; background: linear-gradient(rgb(38 49 44 / 0.07), transparent); pointer-events: none; } .ds-header nav { display: flex; gap: 0.25rem; margin-left: auto; } .ds-header a { padding: 0.55rem 0.85rem; border-radius: 999px; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 560; font-size: 0.975rem; color: inherit; text-decoration: none; transition: background-color 200ms ease, color 200ms ease; } .ds-header a[aria-current=\"true\"] { background: rgb(54 123 75 / 0.12); color: #173f32; } .ds-header a:hover { background: rgb(54 123 75 / 0.12); } .ds-header a:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; }"
     },
     {
-      "name": "Pestañas de necesidades",
+      "name": "Medidor de profundidad",
+      "kind": "custom",
+      "refersTo": "gauge",
+      "description": "Estratos de la página en el borde derecho; la semilla del logotipo marca dónde se está.",
+      "html": "<nav class=\"ds-gauge\" aria-label=\"Recorrido\"><ol><li><a href=\"#\"><span>Superficie</span></a></li><li><a href=\"#\" aria-current=\"true\"><span>Nosotros</span></a></li><li><a href=\"#\"><span>Productos</span></a></li><li><a href=\"#\"><span>Proceso</span></a></li></ol><span class=\"ds-gauge__seed\" aria-hidden=\"true\"></span></nav>",
+      "css": ".ds-gauge { position: relative; display: inline-block; padding: 8px 16px; color: #26312c; font-family: \"Hanken Grotesk\", system-ui, sans-serif; } .ds-gauge ol { position: relative; display: grid; gap: 22px; margin: 0; padding: 0; list-style: none; } .ds-gauge ol::before { content: \"\"; position: absolute; right: 4px; top: 6px; bottom: 6px; width: 1px; background: currentColor; opacity: 0.28; } .ds-gauge a { display: flex; align-items: center; justify-content: flex-end; gap: 0.75rem; min-height: 24px; color: inherit; text-decoration: none; } .ds-gauge a::after { content: \"\"; flex: none; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid currentColor; opacity: 0.55; transition: opacity 200ms ease, transform 200ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-gauge a span { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.01em; white-space: nowrap; opacity: 0; transform: translateX(6px); transition: opacity 200ms ease, transform 200ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-gauge:hover a span, .ds-gauge a:focus-visible span { opacity: 0.85; transform: none; } .ds-gauge a[aria-current=\"true\"]::after { opacity: 1; transform: scale(1.15); } .ds-gauge a:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; border-radius: 6px; } .ds-gauge__seed { position: absolute; right: 15px; top: 8px; width: 12px; height: 10px; border-radius: 46% 54% 50% 50% / 58% 58% 42% 42%; background: #e8892a; box-shadow: 0 2px 6px rgb(30 20 12 / 0.3); transform: translateY(53px) rotate(95deg); pointer-events: none; }"
+    },
+    {
+      "name": "Selector de necesidades",
       "kind": "custom",
       "refersTo": "needs-panel",
-      "description": "Pestañas en display separadas por filetes, con semilla hueca o rellena según el estado.",
-      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button role=\"tab\" aria-selected=\"true\">Recuperar suelos cansados</button><button role=\"tab\" aria-selected=\"false\">Nutrir en floración</button></div>",
-      "css": ".ds-tabs { display: grid; border-top: 1px solid #26312c26; max-width: 420px; } .ds-tabs [role=tab] { display: flex; align-items: center; gap: 0.9rem; min-height: 64px; padding: 1rem 0.25rem; border: 0; border-bottom: 1px solid #26312c26; background: none; text-align: left; font-family: \"Bricolage Grotesque\", \"Hanken Grotesk\", system-ui, sans-serif; font-size: 1.3rem; font-weight: 400; letter-spacing: -0.015em; color: #4a5650; cursor: pointer; transition: color 200ms ease; } .ds-tabs [role=tab]::before { content: \"\"; flex: none; width: 12px; height: 10px; border-radius: 46% 54% 50% 50% / 58% 58% 42% 42%; border: 1.5px solid currentColor; transition: background-color 200ms ease, border-color 200ms ease, transform 250ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-tabs [aria-selected=true], .ds-tabs [role=tab]:hover { color: #173f32; } .ds-tabs [aria-selected=true]::before { background: #e8892a; border-color: #e8892a; transform: scale(1.25); } .ds-tabs [role=tab]:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; border-radius: 6px; }"
+      "description": "Pestañas en display con una semilla que viaja a la elegida; el panel de papel muestra el producto recomendado.",
+      "html": "<div class=\"ds-needs\"><div class=\"ds-tabs\" role=\"tablist\"><button role=\"tab\" aria-selected=\"true\">Mejorar y acondicionar el suelo</button><button role=\"tab\" aria-selected=\"false\">Nutrir con menos fertilizante químico</button><span class=\"ds-marker\" aria-hidden=\"true\"></span></div><div class=\"ds-panel\"><p class=\"ds-panel__name\">Abono Orgánico-Compostado</p><p>Materia orgánica madurada que recupera la estructura del suelo.</p></div></div>",
+      "css": ".ds-needs { display: grid; gap: 1.5rem; max-width: 520px; padding: 1.5rem; background: #ede6d8; font-family: \"Hanken Grotesk\", system-ui, sans-serif; } .ds-tabs { position: relative; display: grid; border-top: 1px solid #26312c24; } .ds-tabs [role=tab] { position: relative; display: flex; align-items: center; min-height: 68px; padding: 1rem 0.25rem 1rem 2.1rem; border: 0; border-bottom: 1px solid #26312c24; background: none; text-align: left; font-family: \"Bricolage Grotesque\", \"Hanken Grotesk\", system-ui, sans-serif; font-size: 1.3rem; font-weight: 400; letter-spacing: -0.015em; color: #4a5650; cursor: pointer; transition: color 200ms ease; } .ds-tabs [role=tab]::before { content: \"\"; position: absolute; left: 0.2rem; width: 12px; height: 10px; border-radius: 46% 54% 50% 50% / 58% 58% 42% 42%; border: 1.5px solid currentColor; opacity: 0.5; } .ds-tabs [aria-selected=true], .ds-tabs [role=tab]:hover { color: #173f32; } .ds-tabs [role=tab]:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; border-radius: 6px; } .ds-marker { position: absolute; left: 0.2rem; top: 0; width: 12px; height: 10px; border-radius: 46% 54% 50% 50% / 58% 58% 42% 42%; background: #e8892a; transform: translateY(29px) scale(1.3); transition: transform 380ms cubic-bezier(0.77, 0, 0.175, 1); pointer-events: none; } .ds-panel { padding: 1.5rem; border-radius: 32px; background: #fafaf6; box-shadow: 0 1px 0 rgb(38 49 44 / 0.04), 0 24px 48px -32px rgb(38 49 44 / 0.35); color: #4a5650; } .ds-panel p { margin: 0; } .ds-panel .ds-panel__name { margin-bottom: 0.75rem; font-family: \"Bricolage Grotesque\", \"Hanken Grotesk\", system-ui, sans-serif; font-size: 1.6rem; font-weight: 420; letter-spacing: -0.026em; line-height: 1.1; color: #173f32; }"
     },
     {
-      "name": "Estratos",
+      "name": "Pregunta frecuente",
       "kind": "custom",
-      "refersTo": "strata",
-      "description": "Cuatro capas de tierra apiladas en una lámina, cada una más oscura.",
-      "html": "<ol class=\"ds-strata\"><li><h3>100 % maduro</h3><p>Sin olor ni temperatura.</p></li><li><h3>Reactiva el suelo</h3><p>Vida microbiana activa.</p></li><li><h3>Accesible</h3><p>Precio justo para el campo.</p></li><li><h3>Más limpio</h3><p>Producción responsable.</p></li></ol>",
-      "css": ".ds-strata { display: grid; margin: 0; padding: 0; list-style: none; border-radius: 32px; overflow: hidden; font-family: \"Hanken Grotesk\", system-ui, sans-serif; } .ds-strata li { display: grid; grid-template-columns: 2fr 3fr; gap: 0.5rem 2rem; padding: 2rem 2.25rem; } .ds-strata li:nth-child(1) { background: #5b4532; } .ds-strata li:nth-child(2) { background: #4b3828; } .ds-strata li:nth-child(3) { background: #3d2d20; } .ds-strata li:nth-child(4) { background: #32251a; } .ds-strata h3 { margin: 0; font-family: \"Bricolage Grotesque\", system-ui, sans-serif; font-size: 1.45rem; font-weight: 420; line-height: 1.15; letter-spacing: -0.02em; color: #fff8ec; } .ds-strata p { margin: 0; color: #cfc6b4; } .ds-strata li:first-child h3::before { content: \"\"; display: inline-block; width: 11px; height: 9px; margin-right: 0.6rem; vertical-align: 0.15em; border-radius: 46% 54% 50% 50% / 58% 58% 42% 42%; background: #e8892a; }"
+      "refersTo": "faq-summary",
+      "description": "Acordeón nativo con más/menos dibujado que gira al abrir.",
+      "html": "<div class=\"ds-faq\"><details class=\"ds-faq__item\" open><summary>¿Venden por volumen a productores?</summary><p>Sí: suministramos paquetes para su plan de nutrición y fertilización.</p></details><details class=\"ds-faq__item\"><summary>¿El abono tiene olor?</summary><p>No: está madurado, sin olor ni temperatura.</p></details></div>",
+      "css": ".ds-faq { max-width: 560px; padding: 1rem 1.5rem; background: #e8f0e6; font-family: \"Hanken Grotesk\", system-ui, sans-serif; } .ds-faq__item { border-bottom: 1px solid #26312c24; } .ds-faq__item:first-child { border-top: 1px solid #26312c24; } .ds-faq__item summary { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 64px; padding: 1rem 0.25rem; list-style: none; cursor: pointer; font-family: \"Bricolage Grotesque\", \"Hanken Grotesk\", system-ui, sans-serif; font-size: 1.25rem; font-weight: 420; letter-spacing: -0.015em; color: #173f32; } .ds-faq__item summary::-webkit-details-marker { display: none; } .ds-faq__item summary::after { content: \"\"; flex: none; width: 14px; height: 14px; background: linear-gradient(currentColor, currentColor) center / 100% 1.8px no-repeat, linear-gradient(currentColor, currentColor) center / 1.8px 100% no-repeat; transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-faq__item[open] summary::after { transform: rotate(135deg); } .ds-faq__item summary:hover { color: #2b6a3d; } .ds-faq__item summary:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; border-radius: 6px; } .ds-faq__item p { margin: 0; padding: 0 0.25rem 1.4rem; max-width: 60ch; color: #4a5650; }"
     },
     {
-      "name": "Fachada de video",
+      "name": "Video (fachada)",
       "kind": "custom",
       "refersTo": "video-facade",
       "description": "Lámina 16:9 con miniatura atenuada y botón semilla circular de reproducción.",
       "html": "<button class=\"ds-video\" type=\"button\"><span class=\"ds-video__play\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><path d=\"M8 5.5v13l11-6.5Z\"/></svg></span><span class=\"ds-video__label\">Ver video: así trabajamos</span></button>",
-      "css": ".ds-video { position: relative; display: block; width: 100%; max-width: 520px; aspect-ratio: 16 / 9; padding: 0; border: 0; border-radius: 32px; overflow: hidden; background: #173f32; cursor: pointer; text-align: left; } .ds-video__play { position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; background: #e8892a; transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-video__play svg { width: 30px; height: 30px; fill: #1e140c; margin-left: 4px; } .ds-video__label { position: absolute; left: 1.25rem; right: 1.25rem; bottom: 1.1rem; color: #fafaf6; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; } .ds-video:hover .ds-video__play { transform: scale(1.06); } .ds-video:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; }"
+      "css": ".ds-video { position: relative; display: block; width: 100%; max-width: 520px; aspect-ratio: 16 / 9; padding: 0; border: 0; border-radius: 32px; overflow: hidden; background: #173f32; cursor: pointer; text-align: left; } .ds-video::after { content: \"\"; position: absolute; inset: auto 0 0 0; height: 46%; background: linear-gradient(to top, rgb(12 20 16 / 0.85), transparent); pointer-events: none; } .ds-video__play { position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; background: #e8892a; box-shadow: 0 10px 28px -10px rgb(30 20 12 / 0.6); transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-video__play svg { width: 30px; height: 30px; fill: #1e140c; margin-left: 4px; } .ds-video__label { position: absolute; z-index: 1; left: 1.25rem; right: 1.25rem; bottom: 1.1rem; color: #fafaf6; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; } .ds-video:hover .ds-video__play { transform: scale(1.06); } .ds-video:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; }"
     }
   ],
   "narrative": {
     "northStar": "El perfil del suelo",
-    "overview": "La página se recorre de arriba hacia abajo como un corte de tierra: cielo claro y plántula en la superficie (papel cálido y verde bosque), arena donde el agricultor decide (necesidades del cultivo), humus oscuro donde vive la ciencia (proceso de compostaje) y bosque profundo al cierre (contacto y pie). El color no decora tarjetas: ocupa regiones completas, y cada cambio de región es un cambio de estrato.\n\nEs un sistema editorial y sereno, de densidad media, hecho con pocas piezas: láminas fotográficas de esquinas grandes, filetes finos en lugar de cajas, una display ligera y apretada, y un solo gesto propio tomado del logotipo: la semilla naranja que la mano siembra. Esa semilla es el único lugar donde el naranja aparece fuera de la acción principal. Rechaza explícitamente la plantilla agro de banner verde sobre una cuadrícula de tarjetas de producto idénticas.\n\nEl movimiento es breve y con intención: las semillas caen y se asientan en la foto del héroe al cargar, los bloques se revelan una vez al entrar en pantalla, y todo se reduce a fundidos de opacidad cuando el usuario pide menos movimiento.",
+    "overview": "La página se recorre de arriba hacia abajo como un corte de tierra, con la gramática **Estratos**: cada sección es un estrato con su propio suelo de color y cortes duros entre uno y otro, sin degradados. En la superficie, una escena fotográfica por capas (manos que siembran) fijada mientras caen semillas; luego papel, hoja y arena donde el agricultor conoce y decide; el pico en los estratos de humus, donde el propio suelo cambia capa a capa mientras se baja; y un cierre en verde bosque donde la semilla germina junto a la acción final. Un medidor de profundidad en el borde derecho dice en qué estrato se está, y su marcador es la semilla del logotipo que cae con la lectura.\n\nEs un sistema editorial y sereno, de densidad media, hecho con pocas piezas: láminas fotográficas de esquinas grandes, filetes finos en lugar de cajas, una display ligera y apretada, materiales translúcidos solo donde el contenido pasa por debajo, y un único gesto propio: la semilla naranja que la mano siembra. Rechaza la plantilla agro de banner verde sobre una cuadrícula de tarjetas de producto idénticas: los productos viajan en un carril horizontal y cada uno llega completo.\n\nEl movimiento está atado al recorrido: escenas fijadas que avanzan con el scroll (héroe, productos, proceso, cierre), barridos de imagen que corren completos al entrar, y cambios de estado breves. Todo tiene versión para movimiento reducido, transparencia reducida y contraste alto.",
     "keyCharacteristics": [
-      "Regiones de color completas (papel, arena, humus, bosque) en lugar de tarjetas.",
-      "Láminas fotográficas con radio grande y fluido (24 a 44 px).",
-      "Filetes finos de 1 px como estructura; casi sin sombras.",
-      "Display Bricolage Grotesque ligera (330 a 420) con interletrado negativo.",
-      "La semilla del logotipo como viñeta, marcador de estado y motivo animado.",
+      "Un suelo de color por sección, con cortes duros (papel, hoja, arena, arena 2, estratos de humus, bosque, bosque profundo).",
+      "Héroe por capas: lámina de tierra, sujeto recortado con alfa, semillas en tres profundidades, velo local bajo el texto, salida a lámina redondeada.",
+      "Medidor de profundidad con la semilla que cae como firma de navegación.",
+      "Encabezado de material translúcido con tres tonos (claro, oscuro, transparente).",
+      "Láminas con radio grande y fluido (22 a 44 px); filetes de 1 px como estructura.",
+      "Display Bricolage Grotesque ligera (320 a 420) con interletrado negativo.",
       "Naranja semilla reservado para semillas y la acción principal."
     ],
     "rules": [
-      { "name": "La Regla de la Semilla", "body": "El naranja aparece solo como semilla o como la acción principal de una región. Nunca como fondo de sección, color de texto ni decoración de borde.", "section": "colors" },
-      { "name": "La Regla del Estrato", "body": "El color cambia por regiones completas que bajan en profundidad: papel, arena, humus, bosque, bosque profundo. Una región oscura no se pone encima de una clara más abajo en la página sin razón narrativa.", "section": "colors" },
-      { "name": "La Regla de la Display Ligera", "body": "Los titulares van entre 330 y 420 de peso con interletrado negativo (-0.015em a -0.04em). Nunca negrita en la display; el peso fuerte (600 a 650) es del texto de acción y los datos.", "section": "typography" },
-      { "name": "La Regla de la Caja Natural", "body": "Sin mayúsculas sostenidas ni versalitas espaciadas: todos los rótulos van en caja de oración.", "section": "typography" },
-      { "name": "La Regla de la Tierra Plana", "body": "Las superficies son planas. La sombra solo existe cuando un objeto está literalmente encima de otro.", "section": "elevation" }
+      {
+        "name": "La Regla de la Semilla",
+        "body": "El naranja aparece solo como semilla o como la acción principal de una región. Nunca como fondo de sección, color de texto ni decoración de borde.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla del Estrato",
+        "body": "Cada sección es dueña de un suelo completo y lo cambia con un corte duro, sin degradados entre suelos. Los suelos oscuros se reservan para la escena del héroe, el pico del proceso, el cierre y el pie.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla del Verde Legible",
+        "body": "El verde campo es para rellenos, acentos y texto grande; el texto pequeño verde sobre fondo claro usa verde campo legible.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla de la Display Ligera",
+        "body": "Los titulares van entre 320 y 420 de peso con interletrado negativo (-0.015em a -0.042em). Nunca negrita en la display; el peso fuerte (600 a 650) es del texto de acción, los rótulos y los datos.",
+        "section": "typography"
+      },
+      {
+        "name": "La Regla de la Caja Natural",
+        "body": "Sin mayúsculas sostenidas ni versalitas espaciadas, y sin antetítulos sobre los titulares: todos los rótulos van en caja de oración.",
+        "section": "typography"
+      },
+      {
+        "name": "La Regla del Levantamiento Único",
+        "body": "Las superficies son planas. Solo las láminas donde el visitante recibe una respuesta llevan la elevación suave; la sombra de objeto es para lo que está encima de otra cosa.",
+        "section": "elevation"
+      },
+      {
+        "name": "La Regla del Material",
+        "body": "La translucidez (desenfoque de 10 a 20 px) es solo para lo que tiene contenido o foto debajo: el encabezado, el botón de cristal del héroe y las leyendas sobre foto. Con transparencia reducida se vuelven sólidos.",
+        "section": "elevation"
+      },
+      {
+        "name": "La Regla del Velo Local",
+        "body": "Sobre la foto, el oscurecimiento va donde está el texto (velo radial bajo el titular, más un oscurecimiento general por las esquinas), no como capa uniforme sobre toda la escena.",
+        "section": "elevation"
+      }
     ],
     "dos": [
-      "Do dar a cada región un estrato de color completo (papel, arena, humus, bosque) en lugar de encerrar contenido en tarjetas.",
-      "Do usar la semilla (óvalo irregular naranja) como viñeta de lista, marcador de estado activo y motivo decorativo.",
-      "Do mantener los titulares en Bricolage Grotesque entre 330 y 420 de peso con interletrado negativo.",
-      "Do usar radio de lámina (24 a 44 px) para fotos y superficies, y pastilla completa para todo lo accionable pequeño.",
-      "Do separar con filetes de 1 px al 15 % de tinta (o de crema sobre oscuro).",
+      "Do dar a cada sección un suelo de color completo y cambiarlo con un corte duro, sin degradados entre suelos.",
+      "Do usar la semilla (óvalo irregular naranja) como viñeta, marcador de estado y motivo animado, y como marcador del medidor de profundidad.",
+      "Do mantener los titulares en Bricolage Grotesque entre 320 y 420 de peso con interletrado negativo.",
+      "Do usar radio de lámina (22 a 44 px) para fotos y superficies, y pastilla completa para todo lo accionable pequeño.",
+      "Do separar con filetes de 1 px de tinta (o de crema sobre oscuro).",
+      "Do usar verde campo legible (#2b6a3d) para texto verde pequeño sobre fondos claros, y el color error (#a5321c) para campos inválidos.",
       "Do poner texto tierra tostada (#1e140c) sobre naranja semilla y usar naranja tostado para el foco sobre fondos claros.",
-      "Do limitar hover a puntero fino y ofrecer alternativa de solo opacidad con movimiento reducido."
+      "Do oscurecer la foto solo donde va el texto, con un velo local entre el sujeto y el titular.",
+      "Do dar a todo material translúcido una versión sólida con transparencia reducida y contraste alto.",
+      "Do limitar hover y profundidad por puntero a puntero fino, y ofrecer alternativa de solo opacidad con movimiento reducido."
     ],
     "donts": [
       "Don't usar naranja como fondo de sección, color de texto o borde decorativo; es solo semilla y acción principal.",
       "Don't construir una cuadrícula de tarjetas de producto idénticas bajo un banner verde.",
-      "Don't poner sombra a láminas, paneles o bandas; la sombra suave es solo para objetos encima de otro (semillas, foto incrustada, botón flotante).",
-      "Don't usar la display en negrita ni rótulos en mayúsculas espaciadas.",
-      "Don't poner texto blanco sobre el naranja semilla."
+      "Don't poner sombra a secciones ni a láminas de foto; la elevación suave es solo para las láminas de respuesta y la sombra de objeto para lo que está encima de otra cosa.",
+      "Don't usar la display en negrita, rótulos en mayúsculas espaciadas ni antetítulos sobre los titulares.",
+      "Don't poner texto blanco sobre el naranja semilla.",
+      "Don't usar degradados entre suelos ni oscurecer la foto del héroe con una capa uniforme."
     ]
   }
 }
