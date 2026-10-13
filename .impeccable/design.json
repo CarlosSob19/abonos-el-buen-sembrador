@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T00:00:00Z",
+  "title": "Design System: Abonos El Buen Sembrador",
+  "extensions": {
+    "colorMeta": {
+      "forest": { "role": "primary", "displayName": "Verde Bosque", "canonical": "#173f32", "tonalRamp": ["#001008", "#012c20", "#21483b", "#3f6759", "#628a7b", "#85af9f", "#abd6c5", "#cefae9"] },
+      "forest-deep": { "role": "primary", "displayName": "Bosque Profundo", "canonical": "#0f2c23", "tonalRamp": ["#001009", "#0d2a21", "#2a473d", "#47655a", "#69887d", "#8dada1", "#b2d3c7", "#d6f8eb"] },
+      "field": { "role": "primary", "displayName": "Verde Campo", "canonical": "#367b4b", "tonalRamp": ["#001102", "#012d12", "#074d24", "#286e3f", "#4d9260", "#72b784", "#98dea9", "#c8ffd4"] },
+      "seed": { "role": "secondary", "displayName": "Naranja Semilla", "canonical": "#e8892a", "tonalRamp": ["#1a0500", "#391b00", "#603302", "#8a4c06", "#bc6800", "#e98a2b", "#fcbb86", "#feeadc"] },
+      "seed-deep": { "role": "secondary", "displayName": "Naranja Tostado", "canonical": "#c96f14", "tonalRamp": ["#1b0400", "#3a1b00", "#613101", "#8c4a04", "#ba681b", "#e78b3b", "#feba86", "#ffeadb"] },
+      "seed-hover": { "role": "secondary", "displayName": "Naranja Encendido", "canonical": "#f09a40", "tonalRamp": ["#190500", "#391c00", "#5d3505", "#864f0c", "#b76c0c", "#e38e31", "#ffba7b", "#ffead9"] },
+      "on-seed": { "role": "secondary", "displayName": "Tierra Tostada", "canonical": "#1e140c", "tonalRamp": ["#120903", "#2c2219", "#493d34", "#675b51", "#8b7d73", "#b0a297", "#d6c7bc", "#faebe0"] },
+      "humus": { "role": "tertiary", "displayName": "Humus", "canonical": "#2e2219", "tonalRamp": ["#32251a", "#3d2d20", "#4b3828", "#5b4532", "#8c7d72", "#b1a196", "#d7c7bb", "#fcebdf"] },
+      "paper": { "role": "neutral", "displayName": "Papel Cálido", "canonical": "#fafaf6", "tonalRamp": ["#0b0b09", "#242421", "#40403d", "#5e5e5a", "#80807d", "#a5a5a1", "#cbcbc7", "#efefeb"] },
+      "sand": { "role": "neutral", "displayName": "Arena", "canonical": "#ede6d8", "tonalRamp": ["#0f0a03", "#292319", "#453f34", "#635d51", "#867f73", "#aaa497", "#d1cabc", "#f5eee0"] },
+      "leaf": { "role": "neutral", "displayName": "Hoja", "canonical": "#e8f0e6", "tonalRamp": ["#080d07", "#20261f", "#3c423a", "#596057", "#7b837a", "#a0a79e", "#c5cdc3", "#e9f1e7"] },
+      "ink": { "role": "neutral", "displayName": "Tinta", "canonical": "#26312c", "tonalRamp": ["#050e09", "#1c2722", "#37433e", "#55615b", "#77847e", "#9ba8a2", "#c1cec8", "#e4f2ec"] },
+      "ink-soft": { "role": "neutral", "displayName": "Tinta Suave", "canonical": "#4a5650", "tonalRamp": ["#050e09", "#1c2722", "#37433d", "#55615b", "#77847d", "#9ba8a2", "#c1cec7", "#e4f3eb"] },
+      "on-dark": { "role": "neutral", "displayName": "Crema sobre oscuro", "canonical": "#f3eee3", "tonalRamp": ["#0e0b05", "#27241b", "#433f37", "#615d54", "#848076", "#a9a49a", "#cfcabf", "#f3eee3"] },
+      "on-dark-soft": { "role": "neutral", "displayName": "Crema apagada", "canonical": "#cfc6b4", "tonalRamp": ["#100a01", "#2a2315", "#463f30", "#655d4d", "#887f6f", "#aca492", "#d3cab7", "#f7eedb"] },
+      "cream-highlight": { "role": "neutral", "displayName": "Crema luz", "canonical": "#fff8ec", "tonalRamp": ["#0f0a04", "#28231a", "#443f35", "#635d53", "#867f75", "#aaa499", "#d0cabe", "#f5eee2"] },
+      "rule": { "role": "neutral", "displayName": "Filete", "canonical": "#26312c26" },
+      "rule-dark": { "role": "neutral", "displayName": "Filete oscuro", "canonical": "#f3eee326" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Solo el titular del héroe; el cierre de contacto usa una variante mayor (330, hasta 6rem, -0.04em)." },
+      "headline": { "displayName": "Headline", "purpose": "Título de cada sección, con text-wrap: balance." },
+      "title": { "displayName": "Title", "purpose": "Nombre de producto, producto recomendado, cultivos, tradición; variante menor en estratos y pestañas." },
+      "lead": { "displayName": "Lead", "purpose": "Entradilla del héroe y del contacto, 36 a 46ch." },
+      "body": { "displayName": "Body", "purpose": "Texto corrido, 52 a 64ch." },
+      "label": { "displayName": "Label", "purpose": "Botones, chips, categoría de producto, datos del héroe. Caja de oración, nunca mayúsculas sostenidas." }
+    },
+    "shadows": [
+      { "name": "seed", "value": "0 2px 6px rgb(30 20 12 / 0.25)", "purpose": "Asienta cada semilla sobre la fotografía." },
+      { "name": "inset-photo", "value": "0 18px 40px -18px rgb(38 49 44 / 0.45)", "purpose": "Foto de uso montada sobre la esquina de una lámina de producto, con marco papel de 6px." },
+      { "name": "float", "value": "0 10px 28px -10px rgb(30 20 12 / 0.55)", "purpose": "Solo el botón flotante de WhatsApp en móvil." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Curva por defecto: caída de semillas, revelados, hover de flechas y video, presión de botón." },
+      { "name": "ease-in-out", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "Transiciones simétricas." },
+      { "name": "ease-drawer", "value": "cubic-bezier(0.32, 0.72, 0, 1)", "purpose": "Entrada del menú móvil (300ms)." },
+      { "name": "seed-fall", "value": "1100ms ease-out, delay 350ms + i*70ms", "purpose": "Semillas que caen 48px girando y se asientan sobre la foto del héroe." },
+      { "name": "reveal", "value": "700ms ease-out, translateY(18px), stagger 60ms (máx. 4)", "purpose": "Revelado único al scroll, solo bajo el pliegue; visible sin JS." },
+      { "name": "state", "value": "200ms ease", "purpose": "Cambios de color de botones, chips, navegación y pestañas." },
+      { "name": "press", "value": "scale(0.97) 160ms ease-out", "purpose": "Respuesta al presionar un botón." },
+      { "name": "reduced-motion", "value": "prefers-reduced-motion: reduce", "purpose": "Sin scroll suave; semillas y revelados solo por fundido de opacidad; panel y menú sin desplazamiento; sin escalas de hover ni presión." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "520px" },
+      { "name": "md", "value": "900px" },
+      { "name": "nav", "value": "1080px" },
+      { "name": "max", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón semilla (principal)",
+      "kind": "button",
+      "refersTo": "button-seed",
+      "description": "La acción principal de cada región (WhatsApp, ver productos). Una por región.",
+      "html": "<a class=\"ds-btn ds-btn-seed\" href=\"#\">Escribir por WhatsApp</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55em; min-height: 48px; padding: 0.75rem 1.4rem; border-radius: 999px; border: 1px solid transparent; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; font-size: 1rem; line-height: 1.2; text-decoration: none; white-space: nowrap; transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; } .ds-btn-seed { background: #e8892a; color: #1e140c; } .ds-btn-seed:hover { background: #f09a40; }"
+    },
+    {
+      "name": "Botón bosque",
+      "kind": "button",
+      "refersTo": "button-forest",
+      "description": "Compra en la tienda en línea desde cada fila de producto.",
+      "html": "<a class=\"ds-btn-forest\" href=\"#\">Comprar en la tienda</a>",
+      "css": ".ds-btn-forest { display: inline-flex; align-items: center; min-height: 48px; padding: 0.75rem 1.4rem; border-radius: 999px; border: 1px solid transparent; background: #173f32; color: #fafaf6; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; font-size: 1rem; text-decoration: none; transition: background-color 200ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn-forest:hover { background: #367b4b; } .ds-btn-forest:active { transform: scale(0.97); } .ds-btn-forest:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; }"
+    },
+    {
+      "name": "Botón línea",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Acción secundaria sobre fondo claro; se rellena de bosque al hover.",
+      "html": "<a class=\"ds-btn-line\" href=\"#\">Contáctanos</a>",
+      "css": ".ds-btn-line { display: inline-flex; align-items: center; min-height: 48px; padding: 0.75rem 1.4rem; border-radius: 999px; border: 1px solid color-mix(in srgb, #173f32 45%, transparent); background: transparent; color: #173f32; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; font-size: 1rem; text-decoration: none; transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease; } .ds-btn-line:hover { background: #173f32; color: #fafaf6; border-color: #173f32; } .ds-btn-line:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; }"
+    },
+    {
+      "name": "Botón fantasma claro",
+      "kind": "button",
+      "refersTo": "button-ghost-light",
+      "description": "Acción secundaria sobre bosque o humus (llamar).",
+      "html": "<div style=\"background:#173f32;padding:24px\"><a class=\"ds-btn-ghost\" href=\"#\">Llamar al 313 767 1300</a></div>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; min-height: 48px; padding: 0.75rem 1.4rem; border-radius: 999px; border: 1px solid #f3eee326; color: #f3eee3; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; font-size: 1rem; text-decoration: none; transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease; } .ds-btn-ghost:hover { background: #f3eee3; color: #173f32; border-color: #f3eee3; } .ds-btn-ghost:focus-visible { outline: 2px solid #e8892a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Link con flecha",
+      "kind": "custom",
+      "refersTo": "link-arrow",
+      "description": "Enlace secundario junto a un botón; chevrón dibujado que avanza al hover.",
+      "html": "<a class=\"ds-link-arrow\" href=\"#\">Pedir por WhatsApp</a>",
+      "css": ".ds-link-arrow { display: inline-flex; align-items: center; gap: 0.45em; min-height: 44px; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; color: #173f32; text-decoration: underline; text-underline-offset: 0.2em; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); } .ds-link-arrow::after { content: \"\"; width: 0.55em; height: 0.55em; border-top: 1.8px solid currentColor; border-right: 1.8px solid currentColor; transform: rotate(45deg); transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-link-arrow:hover { text-decoration-color: currentColor; } .ds-link-arrow:hover::after { transform: translateX(3px) rotate(45deg); } .ds-link-arrow:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Chip de categoría",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Pastilla con filete que enlaza a una categoría de la tienda.",
+      "html": "<a class=\"ds-chip\" href=\"#\">Categoría Abono</a>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; min-height: 40px; padding: 0.4rem 1rem; border-radius: 999px; border: 1px solid #26312c26; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-size: 0.9375rem; font-weight: 600; color: #173f32; text-decoration: none; transition: background-color 200ms ease, border-color 200ms ease; } .ds-chip:hover { background: #e8f0e6; border-color: #367b4b; } .ds-chip:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; }"
+    },
+    {
+      "name": "Navegación",
+      "kind": "nav",
+      "refersTo": "nav-link-active",
+      "description": "Enlaces en pastilla; sección activa y hover con fondo hoja.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"true\">Nosotros</a><a href=\"#\">Productos</a><a href=\"#\">Proceso</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 0.25rem; } .ds-nav a { display: block; padding: 0.55rem 0.8rem; border-radius: 999px; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 550; font-size: 0.9875rem; color: #26312c; text-decoration: none; transition: background-color 200ms ease, color 200ms ease; } .ds-nav a[aria-current=\"true\"], .ds-nav a:hover { background: #e8f0e6; color: #173f32; } .ds-nav a:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; }"
+    },
+    {
+      "name": "Pestañas de necesidades",
+      "kind": "custom",
+      "refersTo": "needs-panel",
+      "description": "Pestañas en display separadas por filetes, con semilla hueca o rellena según el estado.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button role=\"tab\" aria-selected=\"true\">Recuperar suelos cansados</button><button role=\"tab\" aria-selected=\"false\">Nutrir en floración</button></div>",
+      "css": ".ds-tabs { display: grid; border-top: 1px solid #26312c26; max-width: 420px; } .ds-tabs [role=tab] { display: flex; align-items: center; gap: 0.9rem; min-height: 64px; padding: 1rem 0.25rem; border: 0; border-bottom: 1px solid #26312c26; background: none; text-align: left; font-family: \"Bricolage Grotesque\", \"Hanken Grotesk\", system-ui, sans-serif; font-size: 1.3rem; font-weight: 400; letter-spacing: -0.015em; color: #4a5650; cursor: pointer; transition: color 200ms ease; } .ds-tabs [role=tab]::before { content: \"\"; flex: none; width: 12px; height: 10px; border-radius: 46% 54% 50% 50% / 58% 58% 42% 42%; border: 1.5px solid currentColor; transition: background-color 200ms ease, border-color 200ms ease, transform 250ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-tabs [aria-selected=true], .ds-tabs [role=tab]:hover { color: #173f32; } .ds-tabs [aria-selected=true]::before { background: #e8892a; border-color: #e8892a; transform: scale(1.25); } .ds-tabs [role=tab]:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Estratos",
+      "kind": "custom",
+      "refersTo": "strata",
+      "description": "Cuatro capas de tierra apiladas en una lámina, cada una más oscura.",
+      "html": "<ol class=\"ds-strata\"><li><h3>100 % maduro</h3><p>Sin olor ni temperatura.</p></li><li><h3>Reactiva el suelo</h3><p>Vida microbiana activa.</p></li><li><h3>Accesible</h3><p>Precio justo para el campo.</p></li><li><h3>Más limpio</h3><p>Producción responsable.</p></li></ol>",
+      "css": ".ds-strata { display: grid; margin: 0; padding: 0; list-style: none; border-radius: 32px; overflow: hidden; font-family: \"Hanken Grotesk\", system-ui, sans-serif; } .ds-strata li { display: grid; grid-template-columns: 2fr 3fr; gap: 0.5rem 2rem; padding: 2rem 2.25rem; } .ds-strata li:nth-child(1) { background: #5b4532; } .ds-strata li:nth-child(2) { background: #4b3828; } .ds-strata li:nth-child(3) { background: #3d2d20; } .ds-strata li:nth-child(4) { background: #32251a; } .ds-strata h3 { margin: 0; font-family: \"Bricolage Grotesque\", system-ui, sans-serif; font-size: 1.45rem; font-weight: 420; line-height: 1.15; letter-spacing: -0.02em; color: #fff8ec; } .ds-strata p { margin: 0; color: #cfc6b4; } .ds-strata li:first-child h3::before { content: \"\"; display: inline-block; width: 11px; height: 9px; margin-right: 0.6rem; vertical-align: 0.15em; border-radius: 46% 54% 50% 50% / 58% 58% 42% 42%; background: #e8892a; }"
+    },
+    {
+      "name": "Fachada de video",
+      "kind": "custom",
+      "refersTo": "video-facade",
+      "description": "Lámina 16:9 con miniatura atenuada y botón semilla circular de reproducción.",
+      "html": "<button class=\"ds-video\" type=\"button\"><span class=\"ds-video__play\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><path d=\"M8 5.5v13l11-6.5Z\"/></svg></span><span class=\"ds-video__label\">Ver video: así trabajamos</span></button>",
+      "css": ".ds-video { position: relative; display: block; width: 100%; max-width: 520px; aspect-ratio: 16 / 9; padding: 0; border: 0; border-radius: 32px; overflow: hidden; background: #173f32; cursor: pointer; text-align: left; } .ds-video__play { position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; background: #e8892a; transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-video__play svg { width: 30px; height: 30px; fill: #1e140c; margin-left: 4px; } .ds-video__label { position: absolute; left: 1.25rem; right: 1.25rem; bottom: 1.1rem; color: #fafaf6; font-family: \"Hanken Grotesk\", system-ui, sans-serif; font-weight: 600; } .ds-video:hover .ds-video__play { transform: scale(1.06); } .ds-video:focus-visible { outline: 2px solid #c96f14; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El perfil del suelo",
+    "overview": "La página se recorre de arriba hacia abajo como un corte de tierra: cielo claro y plántula en la superficie (papel cálido y verde bosque), arena donde el agricultor decide (necesidades del cultivo), humus oscuro donde vive la ciencia (proceso de compostaje) y bosque profundo al cierre (contacto y pie). El color no decora tarjetas: ocupa regiones completas, y cada cambio de región es un cambio de estrato.\n\nEs un sistema editorial y sereno, de densidad media, hecho con pocas piezas: láminas fotográficas de esquinas grandes, filetes finos en lugar de cajas, una display ligera y apretada, y un solo gesto propio tomado del logotipo: la semilla naranja que la mano siembra. Esa semilla es el único lugar donde el naranja aparece fuera de la acción principal. Rechaza explícitamente la plantilla agro de banner verde sobre una cuadrícula de tarjetas de producto idénticas.\n\nEl movimiento es breve y con intención: las semillas caen y se asientan en la foto del héroe al cargar, los bloques se revelan una vez al entrar en pantalla, y todo se reduce a fundidos de opacidad cuando el usuario pide menos movimiento.",
+    "keyCharacteristics": [
+      "Regiones de color completas (papel, arena, humus, bosque) en lugar de tarjetas.",
+      "Láminas fotográficas con radio grande y fluido (24 a 44 px).",
+      "Filetes finos de 1 px como estructura; casi sin sombras.",
+      "Display Bricolage Grotesque ligera (330 a 420) con interletrado negativo.",
+      "La semilla del logotipo como viñeta, marcador de estado y motivo animado.",
+      "Naranja semilla reservado para semillas y la acción principal."
+    ],
+    "rules": [
+      { "name": "La Regla de la Semilla", "body": "El naranja aparece solo como semilla o como la acción principal de una región. Nunca como fondo de sección, color de texto ni decoración de borde.", "section": "colors" },
+      { "name": "La Regla del Estrato", "body": "El color cambia por regiones completas que bajan en profundidad: papel, arena, humus, bosque, bosque profundo. Una región oscura no se pone encima de una clara más abajo en la página sin razón narrativa.", "section": "colors" },
+      { "name": "La Regla de la Display Ligera", "body": "Los titulares van entre 330 y 420 de peso con interletrado negativo (-0.015em a -0.04em). Nunca negrita en la display; el peso fuerte (600 a 650) es del texto de acción y los datos.", "section": "typography" },
+      { "name": "La Regla de la Caja Natural", "body": "Sin mayúsculas sostenidas ni versalitas espaciadas: todos los rótulos van en caja de oración.", "section": "typography" },
+      { "name": "La Regla de la Tierra Plana", "body": "Las superficies son planas. La sombra solo existe cuando un objeto está literalmente encima de otro.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do dar a cada región un estrato de color completo (papel, arena, humus, bosque) en lugar de encerrar contenido en tarjetas.",
+      "Do usar la semilla (óvalo irregular naranja) como viñeta de lista, marcador de estado activo y motivo decorativo.",
+      "Do mantener los titulares en Bricolage Grotesque entre 330 y 420 de peso con interletrado negativo.",
+      "Do usar radio de lámina (24 a 44 px) para fotos y superficies, y pastilla completa para todo lo accionable pequeño.",
+      "Do separar con filetes de 1 px al 15 % de tinta (o de crema sobre oscuro).",
+      "Do poner texto tierra tostada (#1e140c) sobre naranja semilla y usar naranja tostado para el foco sobre fondos claros.",
+      "Do limitar hover a puntero fino y ofrecer alternativa de solo opacidad con movimiento reducido."
+    ],
+    "donts": [
+      "Don't usar naranja como fondo de sección, color de texto o borde decorativo; es solo semilla y acción principal.",
+      "Don't construir una cuadrícula de tarjetas de producto idénticas bajo un banner verde.",
+      "Don't poner sombra a láminas, paneles o bandas; la sombra suave es solo para objetos encima de otro (semillas, foto incrustada, botón flotante).",
+      "Don't usar la display en negrita ni rótulos en mayúsculas espaciadas.",
+      "Don't poner texto blanco sobre el naranja semilla."
+    ]
+  }
+}

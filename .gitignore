@@ -1,0 +1,5 @@
+node_modules/
+_research/
+strix_runs/
+.impeccable/review/
+*.log

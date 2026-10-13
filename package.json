@@ -1,0 +1,14 @@
+{
+  "name": "abonos-el-buen-sembrador",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rediseño de la página de inicio de Abonos El Buen Sembrador",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
