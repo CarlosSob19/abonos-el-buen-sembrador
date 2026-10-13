@@ -174,3 +174,37 @@ test('actos fijados con escenario y el pico es el más largo', () => {
   assert.ok(proceso, 'falta el acto del proceso');
   assert.equal(Math.max(...spans.map((s) => s[1])), +proceso[1]);
 });
+
+test('SEO: sitemap, robots, manifiesto, íconos y 404 presentes y enlazados', () => {
+  for (const f of ['sitemap.xml', 'robots.txt', 'site.webmanifest', 'favicon.ico', '404.html', 'assets/img/og-abonos.jpg', 'assets/img/apple-touch-icon.png', 'assets/img/icon-192.png', 'assets/img/icon-512.png']) {
+    assert.ok(existsSync(join(root, f)), `falta ${f}`);
+  }
+  assert.match(readFileSync(join(root, 'robots.txt'), 'utf8'), /Sitemap: https:\/\/www\.abonoselbuensembrador\.com\/sitemap\.xml/);
+  assert.match(html, /<meta property="og:image" content="https:\/\/www\.abonoselbuensembrador\.com\/assets\/img\/og-abonos\.jpg">/);
+  assert.match(html, /<meta name="twitter:card" content="summary_large_image">/);
+  assert.match(html, /<link rel="manifest" href="site\.webmanifest">/);
+  const manifest = JSON.parse(readFileSync(join(root, 'site.webmanifest'), 'utf8'));
+  for (const icon of manifest.icons) assert.ok(existsSync(join(root, icon.src)), `ícono ${icon.src}`);
+});
+
+test('datos estructurados: productos con precio real en COP y FAQ igual al texto visible', () => {
+  const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
+  const products = blocks.flatMap((b) => b['@graph'] || []).filter((n) => n['@type'] === 'Product');
+  assert.deepEqual(products.map((p) => [p.name, p.offers.price, p.offers.priceCurrency]), [
+    ['Vinobiol', '45000', 'COP'], ['Abono Orgánico-Compostado', '22000', 'COP'], ['Abono Orgánico-Mineral', '40000', 'COP'],
+  ]);
+  const faq = blocks.find((b) => b['@type'] === 'FAQPage');
+  const visible = [...html.matchAll(/<summary>([\s\S]*?)<\/summary>/g)].map((m) => m[1].trim());
+  assert.deepEqual(faq.mainEntity.map((q) => q.name), visible);
+});
+
+test('formulario de cotización: campos etiquetados, errores vinculados y sin envío sin JS', () => {
+  const form = html.match(/<form class="quote__form"[\s\S]*?<\/form>/)[0];
+  for (const id of ['q-nombre', 'q-municipio', 'q-cultivo', 'q-area', 'q-cantidad', 'q-mensaje']) {
+    assert.ok(form.includes(`for="${id}"`) && form.includes(`id="${id}"`), `campo sin etiqueta: ${id}`);
+  }
+  for (const id of ['q-nombre', 'q-municipio', 'q-cultivo']) assert.ok(form.includes(`aria-describedby="${id}-err"`), `error no vinculado: ${id}`);
+  assert.doesNotMatch(form, /\saction=/, 'sin JS no debe enviarse a ninguna URL');
+  assert.match(form, /data-quote-submit[^>]*>|disabled data-quote-submit/);
+  assert.match(form, /<button[^>]*type="submit"[^>]*disabled/);
+});

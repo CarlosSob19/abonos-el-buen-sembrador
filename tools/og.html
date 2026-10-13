@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Imagen para compartir · fuente</title>
+<!-- Fuente de assets/img/og-abonos.jpg (1200x630). Regenerar: npm run og -->
+<style>
+  @font-face { font-family: "Bricolage Grotesque"; src: url("../assets/fonts/bricolage-grotesque-latin-wght.woff2") format("woff2"); font-weight: 200 800; }
+  @font-face { font-family: "Hanken Grotesk"; src: url("../assets/fonts/hanken-grotesk-latin-wght.woff2") format("woff2"); font-weight: 100 900; }
+  html, body { margin: 0; }
+  .card { position: relative; width: 1200px; height: 630px; overflow: hidden; background: #2e2219; font-family: "Hanken Grotesk", sans-serif; }
+  .base { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 0% 70%; transform: scaleX(-1); filter: blur(6px) brightness(.8); }
+  .layer { position: absolute; top: 0; left: 360px; width: 980px; height: 630px; object-fit: cover; object-position: 45% 62%; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 220px); mask-image: linear-gradient(to right, transparent 0, #000 220px); }
+  .scrim { position: absolute; inset: 0; background: radial-gradient(90% 120% at 0% 100%, rgb(12 9 6 / .92), rgb(12 9 6 / .62) 45%, rgb(12 9 6 / .1) 75%), linear-gradient(to bottom, rgb(12 9 6 / .35), transparent 30%); }
+  .subject { z-index: 1; }
+  .veil { position: absolute; z-index: 2; left: 0; bottom: 0; width: 760px; height: 560px; background: radial-gradient(closest-side at 40% 60%, rgb(12 9 6 / .7), rgb(12 9 6 / .35) 60%, transparent); }
+  .copy { position: absolute; z-index: 3; left: 64px; bottom: 58px; width: 560px; color: #fff8ec; }
+  .brand { display: inline-block; padding: 8px 14px; border-radius: 16px; background: #fafaf6; margin-bottom: 30px; }
+  .brand img { display: block; height: 74px; }
+  h1 { margin: 0; font-family: "Bricolage Grotesque", sans-serif; font-weight: 340; font-size: 58px; line-height: .98; letter-spacing: -.04em; }
+  p { margin: 22px 0 0; font-size: 25px; line-height: 1.35; color: rgb(255 248 236 / .88); }
+  .seed { position: absolute; z-index: 2; width: 16px; height: 13px; border-radius: 46% 54% 50% 50% / 58% 58% 42% 42%; background: #e8892a; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <img class="base" src="../assets/img/hero-fondo.jpg" alt="">
+    <img class="layer" src="../assets/img/hero-fondo.jpg" alt="">
+    <div class="scrim"></div>
+    <i class="seed" style="left:930px;top:80px;transform:rotate(-20deg)"></i>
+    <i class="seed" style="left:1010px;top:140px;transform:rotate(24deg);width:11px;height:9px"></i>
+    <i class="seed" style="left:965px;top:205px;transform:rotate(-8deg)"></i>
+    <img class="layer subject" src="../assets/img/hero-sujeto.png" alt="">
+    <div class="veil"></div>
+    <div class="copy">
+      <span class="brand"><img src="../assets/img/logo-el-buen-sembrador-300.png" alt=""></span>
+      <h1>Insumos agrícolas con biotecnología en Antioquia desde 2013</h1>
+      <p>Abonos orgánicos 100&nbsp;% maduros y fertilizantes.<br>WhatsApp 313&nbsp;767&nbsp;1300</p>
+    </div>
+  </div>
+</body>
+</html>

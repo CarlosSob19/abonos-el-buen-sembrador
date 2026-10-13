@@ -6,3 +6,4 @@ strix_runs/
 lab/
 graphify-out/
 .playwright-cli/
+dist/

@@ -6,13 +6,18 @@
   "type": "module",
   "scripts": {
     "dev": "node server.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "og": "node tools/make-assets.mjs",
+    "build": "node tools/build.mjs",
+    "preview": "node -e \"process.env.ROOT='dist';process.env.PORT='5174';import('./server.mjs')\"",
+    "test:e2e": "node --test tests/*.e2e.mjs"
   },
   "engines": {
     "node": ">=20"
   },
   "devDependencies": {
     "axe-core": "^4.14.0",
+    "esbuild": "^0.28.2",
     "playwright-core": "^1.64.0"
   }
 }

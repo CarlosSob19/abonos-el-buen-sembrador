@@ -227,7 +227,7 @@
   document.addEventListener('click', (event) => {
     if (toggle?.getAttribute('aria-expanded') === 'true' && !event.target.closest('[data-header]')) setMenu(false);
   });
-  window.matchMedia('(min-width: 1081px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
+  window.matchMedia('(min-width: 1141px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
 
   /* Su cultivo: pestañas accesibles; la elección viaja hasta el mensaje final */
   const WA_NUMBER = '573137671300';
@@ -303,4 +303,88 @@
     }, { once: true });
   });
 
+  /* Medición de conversiones: funciona con Plausible o Google Tag Manager si se
+     instalan (ver README); sin ellos no hace nada y no envía datos a nadie. */
+  function track(name, props = {}) {
+    try {
+      if (typeof window.plausible === 'function') window.plausible(name, { props });
+      if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: name, ...props });
+    } catch { /* la medición nunca debe romper la página */ }
+  }
+  document.addEventListener('click', (event) => {
+    const a = event.target.closest('a[href]');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    const where = a.closest('section, header, footer, aside')?.id || a.closest('header, footer, aside')?.tagName.toLowerCase() || 'pagina';
+    if (href.startsWith('https://wa.me/')) track('whatsapp_click', { seccion: where });
+    else if (href.startsWith('tel:')) track('telefono_click', { seccion: where });
+    else if (href.startsWith('https://www.abonoselbuensembrador.com/')) track('tienda_click', { destino: new URL(href).pathname, seccion: where });
+  });
+  document.addEventListener('click', (event) => {
+    const tab = event.target.closest('[role="tab"][data-need]');
+    if (tab) track('necesidad_elegida', { necesidad: tab.dataset.need });
+    const video = event.target.closest('[data-video]');
+    if (video) track('video_play', { video: video.dataset.video });
+  });
+
+  /* Cotización por volumen: valida, arma el mensaje y lo entrega por WhatsApp */
+  const form = document.querySelector('[data-quote]');
+  if (form) {
+    const submit = form.querySelector('[data-quote-submit]');
+    const status = form.querySelector('[data-quote-status]');
+    submit.disabled = false;
+    const rules = [
+      ['nombre', (f) => f.nombre.value.trim().length > 1, 'q-nombre'],
+      ['municipio', (f) => f.municipio.value.trim().length > 1, 'q-municipio'],
+      ['cultivo', (f) => f.cultivo.value !== '', 'q-cultivo'],
+      ['productos', (f) => [...f.querySelectorAll('[name="productos"]:checked')].length > 0, 'q-productos'],
+    ];
+    const setError = (id, on) => {
+      const err = document.getElementById(`${id}-err`);
+      if (err) err.hidden = !on;
+      const field = id === 'q-productos' ? form.querySelector('.field--choices') : document.getElementById(id);
+      field?.setAttribute('aria-invalid', String(on));
+    };
+    form.addEventListener('input', (event) => {
+      const id = event.target.closest('.field--choices') ? 'q-productos' : event.target.id;
+      if (id) setError(id, false);
+    });
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      let firstBad = null;
+      rules.forEach(([, ok, id]) => {
+        const bad = !ok(form);
+        setError(id, bad);
+        if (bad && !firstBad) firstBad = id === 'q-productos' ? form.querySelector('[name="productos"]') : document.getElementById(id);
+      });
+      if (firstBad) {
+        status.textContent = 'Revise los campos marcados.';
+        firstBad.focus();
+        return;
+      }
+      const v = (name) => form[name].value.trim();
+      const productos = [...form.querySelectorAll('[name="productos"]:checked')].map((c) => c.value);
+      const lines = [
+        'Hola, quiero una cotización por volumen.',
+        `Nombre: ${v('nombre')}`,
+        `Ubicación: ${v('municipio')}`,
+        `Cultivo: ${v('cultivo')}`,
+        v('area') && `Área: ${v('area')}`,
+        `Productos: ${productos.join(', ')}`,
+        v('cantidad') && `Cantidad aproximada: ${v('cantidad')}`,
+        v('mensaje') && `Mensaje: ${v('mensaje')}`,
+      ].filter(Boolean);
+      const href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
+      track('cotizacion_enviada', { cultivo: v('cultivo'), productos: productos.join(' | ') });
+      window.open(href, '_blank', 'noopener');
+      // Respaldo por si el navegador bloquea la ventana nueva
+      status.textContent = 'Abrimos WhatsApp con su mensaje listo para enviar. Si no se abrió, ';
+      const link = document.createElement('a');
+      link.href = href;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = 'ábralo aquí';
+      status.append(link, '.');
+    });
+  }
 })();
