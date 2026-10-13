@@ -18,7 +18,10 @@
   <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/hanken-grotesk-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero-siembra.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="assets/vendor/scrollcraft/scrollcraft.css">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/boot.js"></script>
+  <script src="assets/vendor/scrollcraft/scrollcraft.js" defer></script>
   <script src="assets/js/main.js" defer></script>
   <script type="application/ld+json">
   {
@@ -37,7 +40,7 @@
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <header class="site-header" data-header>
+  <header class="site-header" data-header data-tone="clear">
     <div class="site-header__inner">
       <a class="brand" href="#inicio" aria-label="Abonos El Buen Sembrador, ir al inicio">
         <picture>
@@ -89,29 +92,76 @@
     </div>
   </header>
 
-  <main id="contenido">
-    <!-- HERO -->
-    <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <div class="hero__copy">
-        <h1 id="hero-title" class="hero__title">Insumos agrícolas con biotecnología en Antioquia desde&nbsp;2013</h1>
-        <p class="hero__lead">Abonos orgánicos 100&nbsp;% maduros, sin olores ni temperatura, y fertilizantes para jardinería, huertas y todo tipo de cultivos.</p>
-        <div class="hero__actions">
-          <a class="btn btn--seed" href="#productos">Conoce nuestros productos</a>
-          <a class="btn btn--line" href="#contacto">Contáctanos</a>
+  <!-- Medidor de profundidad: la semilla baja con la lectura (escritorio) -->
+  <nav class="gauge" aria-label="Recorrido de la página" data-gauge>
+    <ol>
+      <li><a href="#inicio" data-stratum="inicio"><span>Superficie</span></a></li>
+      <li><a href="#nosotros" data-stratum="nosotros"><span>Nosotros</span></a></li>
+      <li><a href="#productos" data-stratum="productos"><span>Productos</span></a></li>
+      <li><a href="#cultivos" data-stratum="cultivos"><span>Su cultivo</span></a></li>
+      <li><a href="#usos" data-stratum="usos"><span>Cultivos</span></a></li>
+      <li><a href="#proceso" data-stratum="proceso"><span>Proceso</span></a></li>
+      <li><a href="#trabajo" data-stratum="trabajo"><span>En el campo</span></a></li>
+      <li><a href="#contacto" data-stratum="contacto"><span>Contacto</span></a></li>
+    </ol>
+    <span class="gauge__seed" aria-hidden="true" data-gauge-seed></span>
+  </nav>
+
+  <main id="contenido" data-sc-root>
+    <!-- 1 · SUPERFICIE: escena por capas, fijada mientras se siembra -->
+    <section class="hero" id="inicio" data-sc-act="pin" data-sc-span="1.9" aria-labelledby="hero-title">
+      <div data-sc-stage class="hero__stage">
+        <div class="hero__frame">
+          <div class="hero__plate">
+            <picture>
+              <source srcset="assets/img/hero-siembra.webp" type="image/webp">
+              <img src="assets/img/hero-siembra.jpg" alt="Dos manos siembran una plántula en tierra abonada" width="1600" height="776" fetchpriority="high" decoding="async">
+            </picture>
+          </div>
+          <!-- Capa reservada para el recorte con alfa de manos y plántula (pendiente, ver README) -->
+          <div class="hero__scrim" aria-hidden="true"></div>
+          <div class="hero__seeds hero__seeds--far" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="hero__seeds hero__seeds--mid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="hero__seeds hero__seeds--near" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+
+        <div class="hero__copy" data-sc-cue="0 0.5 0">
+          <h1 id="hero-title" class="hero__title">Insumos agrícolas con biotecnología en Antioquia desde&nbsp;2013</h1>
+          <p class="hero__lead">Abonos orgánicos 100&nbsp;% maduros y fertilizantes para jardinería, huertas y todo tipo de cultivos.</p>
+          <div class="hero__actions">
+            <a class="btn btn--seed btn--lg" href="#productos">Conoce nuestros productos</a>
+            <a class="btn btn--glass btn--lg" href="#contacto">Contáctanos</a>
+          </div>
+        </div>
+
+        <p class="hero__second" data-sc-cue="0.42 0.97 0.25 0.15">Sin olores, ni temperatura. <span>Materia orgánica madurada que nutre las plantas y mejora sus suelos.</span></p>
+      </div>
+    </section>
+
+    <!-- 2 · NOSOTROS: la afirmación se arma línea a línea -->
+    <section class="about stratum" id="nosotros" data-sc-act="flow" aria-labelledby="about-title">
+      <div class="about__grid">
+        <div class="about__text">
+          <h2 id="about-title" class="section-title" data-sc-cue="0.06" data-sc-kinetic="lines">En Abonos El Buen Sembrador brindamos soluciones biotecnológicas para sus cultivos</h2>
+          <p class="about__statement" data-sc-in>Contamos con más de 10 años de experiencia fabricando insumos agrícolas a través de <em>procesos de compostaje avanzado</em>, que dan a nuestros abonos excelentes cualidades para nutrir las plantas, mejorar sus suelos y hacer de su cultivo una unidad productiva más rentable.</p>
+          <div class="about__more" data-sc-stagger="80">
+            <p>Somos su proveedor de abonos orgánicos especiales, que pueden utilizarse en jardinería, huertas y todo tipo de cultivos. Son 100&nbsp;% maduros: sin olores, ni temperatura.</p>
+            <p>Nos enfocamos en el desarrollo de paquetes y soluciones especializadas desde lo agroecológico, para suministrar a productores y empresarios del campo agroinsumos que respondan a las necesidades del plan de nutrición y fertilización de sus cultivos, orgánicos o más limpios.</p>
+          </div>
+        </div>
+        <div class="about__video">
+          <div class="about__wipe" data-sc-reveal="up" data-sc-reveal-at="0.12 0.42">
+            <button class="video-facade" type="button" data-video="mwz1f_wHgaI" data-title="Video de Abonos El Buen Sembrador">
+              <img src="https://i.ytimg.com/vi/mwz1f_wHgaI/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+              <span class="video-facade__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5Z"/></svg></span>
+              <span class="video-facade__label">Ver video: así trabajamos</span>
+            </button>
+          </div>
+          <p class="video-note">El video se carga desde YouTube al reproducirlo.</p>
         </div>
       </div>
 
-      <figure class="hero__media">
-        <picture>
-          <source srcset="assets/img/hero-siembra.webp" type="image/webp">
-          <img src="assets/img/hero-siembra.jpg" alt="Dos manos siembran una plántula en tierra abonada" width="1600" height="776" fetchpriority="high" decoding="async">
-        </picture>
-        <div class="seeds" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </figure>
-
-      <ul class="hero__facts" aria-label="Por qué elegirnos">
+      <ul class="facts" aria-label="Por qué elegirnos" data-sc-stagger="70">
         <li><strong>Desde 2013</strong><span>Más de 10 años fabricando insumos agrícolas</span></li>
         <li><strong>Gran variedad y calidad</strong><span>Productos elaborados con los mejores materiales</span></li>
         <li><strong>Satisfacción garantizada</strong><span>Nuestro compromiso es servirte</span></li>
@@ -119,211 +169,220 @@
       </ul>
     </section>
 
-    <!-- NOSOTROS -->
-    <section class="about" id="nosotros" aria-labelledby="about-title">
-      <div class="about__text" data-reveal>
-        <h2 id="about-title" class="section-title">En Abonos El Buen Sembrador brindamos soluciones biotecnológicas para sus cultivos</h2>
-        <p class="about__statement">Contamos con más de 10 años de experiencia fabricando insumos agrícolas a través de <em>procesos de compostaje avanzado</em>, que dan a nuestros abonos excelentes cualidades para nutrir las plantas, mejorar sus suelos y hacer de su cultivo una unidad productiva más rentable.</p>
-        <p>Somos su proveedor de abonos orgánicos especiales, que pueden utilizarse en jardinería, huertas y todo tipo de cultivos. Son 100&nbsp;% maduros: sin olores, ni temperatura.</p>
-        <p>Nos enfocamos en el desarrollo de paquetes y soluciones especializadas desde lo agroecológico, para suministrar a productores y empresarios del campo agroinsumos que respondan a las necesidades del plan de nutrición y fertilización de sus cultivos, orgánicos o más limpios.</p>
-      </div>
-      <div class="about__video" data-reveal>
-        <button class="video-facade" type="button" data-video="mwz1f_wHgaI" data-title="Video de Abonos El Buen Sembrador">
-          <img src="https://i.ytimg.com/vi/mwz1f_wHgaI/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
-          <span class="video-facade__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5Z"/></svg></span>
-          <span class="video-facade__label">Ver video: así trabajamos</span>
-        </button>
-        <p class="video-note">El video se carga desde YouTube al reproducirlo.</p>
+    <!-- 3 · PRODUCTOS: recorrido lateral en escritorio, lista en móvil -->
+    <section class="products" id="productos" data-sc-act="pan" data-sc-span="4.4" data-pan-desktop aria-labelledby="products-title">
+      <div data-sc-stage class="products__stage">
+        <div class="rail" data-sc-pan="0.04">
+          <div class="rail__lead">
+            <h2 id="products-title" class="section-title">Nuestros productos</h2>
+            <p>Abonos sólidos para el suelo y un fertilizante líquido. Compra en nuestra tienda en línea o pídelos por WhatsApp.</p>
+            <div class="category-links">
+              <a class="chip" href="https://www.abonoselbuensembrador.com/categories/abono?lang=es">Categoría Abono</a>
+              <a class="chip" href="https://www.abonoselbuensembrador.com/categories/fertilizante?lang=es">Categoría Fertilizante</a>
+            </div>
+          </div>
+
+          <article class="product" id="vinobiol" aria-labelledby="p-vinobiol">
+            <div class="product__media product__media--leaf">
+              <picture>
+                <source srcset="assets/img/vinobiol.webp" type="image/webp">
+                <img src="assets/img/vinobiol.jpg" alt="Envase de Vinobiol, fertilizante orgánico mineral de El Buen Sembrador" width="700" height="1460" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="product__body">
+              <p class="product__cat">Fertilizante · Líquido</p>
+              <h3 id="p-vinobiol" class="product__name">Vinobiol</h3>
+              <p class="product__summary">Fertilizante orgánico mineral completamente soluble en agua, con fórmula enriquecida en potasio y oligoelementos.</p>
+              <ul class="product__specs">
+                <li>Estimula procesos de floración y fructificación.</li>
+                <li>Combate el estrés en cultivos y posee algunas propiedades fúngicas.</li>
+                <li>Se aplica directamente al suelo.</li>
+                <li>Usos: aguacate, café, lulo, hortalizas, aromáticas y medicinales, frijol, papa, pastos y leguminosas.</li>
+              </ul>
+              <dl class="product__meta">
+                <div><dt>Presentación</dt><dd>1, 4 y 20 litros</dd></div>
+                <div><dt>Precio 1 L</dt><dd class="price">$&nbsp;45.000</dd></div>
+              </dl>
+              <div class="product__actions">
+                <a class="btn btn--forest" href="https://www.abonoselbuensembrador.com/vb1l?lang=es">Comprar en la tienda</a>
+                <a class="link-arrow" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20pedir%20Vinobiol." target="_blank" rel="noopener">Pedir por WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product" id="compostado" aria-labelledby="p-compostado">
+            <div class="product__media">
+              <picture>
+                <source srcset="assets/img/saco-abono-el-buen-sembrador.webp" type="image/webp">
+                <img src="assets/img/saco-abono-el-buen-sembrador.jpg" alt="Saco de 50 kilos de Abono Orgánico-Compostado El Buen Sembrador" width="852" height="846" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="product__body">
+              <p class="product__cat">Abono · Sólido</p>
+              <h3 id="p-compostado" class="product__name">Abono Orgánico-Compostado</h3>
+              <p class="product__summary">Abono sólido obtenido del proceso de compostaje de la mezcla de residuos de origen animal y vegetal.</p>
+              <ul class="product__specs">
+                <li>Materia orgánica madurada, sin olor, a temperatura ambiente, con humedad controlada y textura adecuada.</li>
+                <li>Es un mejorador o acondicionador de suelos.</li>
+                <li>Se usa para todo tipo de cultivos en las dosis y frecuencias acostumbradas.</li>
+              </ul>
+              <dl class="product__meta">
+                <div><dt>Presentación</dt><dd>Saco o costal de 50 kilos</dd></div>
+                <div><dt>Precio</dt><dd class="price">$&nbsp;22.000</dd></div>
+              </dl>
+              <div class="product__actions">
+                <a class="btn btn--forest" href="https://www.abonoselbuensembrador.com/abono-organico-compostado?lang=es">Comprar en la tienda</a>
+                <a class="link-arrow" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20pedir%20Abono%20Org%C3%A1nico-Compostado." target="_blank" rel="noopener">Pedir por WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product" id="mineral" aria-labelledby="p-mineral">
+            <div class="product__media product__media--pair">
+              <picture>
+                <source srcset="assets/img/saco-abono-el-buen-sembrador.webp" type="image/webp">
+                <img src="assets/img/saco-abono-el-buen-sembrador.jpg" alt="Saco de Abono Orgánico-Mineral El Buen Sembrador" width="852" height="846" loading="lazy" decoding="async">
+              </picture>
+              <picture class="product__photo">
+                <source srcset="assets/img/abono-organico-mineral-bodega.webp" type="image/webp">
+                <img src="assets/img/abono-organico-mineral-bodega.jpg" alt="Sacos de Abono Orgánico-Mineral apilados en bodega" width="1280" height="960" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="product__body">
+              <p class="product__cat">Abono · Sólido en polvo</p>
+              <h3 id="p-mineral" class="product__name">Abono Orgánico-Mineral</h3>
+              <p class="product__summary">Aporta materia orgánica estabilizada, libre de nemátodos y microorganismos dañinos que puedan afectar su cultivo.</p>
+              <ul class="product__specs">
+                <li>Aporta nutrientes en cantidades suficientes, posibilitándole un óptimo rendimiento.</li>
+                <li>Permite incluso la disminución en el consumo o la sustitución parcial de fertilizante químico, por su alta capacidad de intercambio catiónico.</li>
+              </ul>
+              <dl class="product__meta">
+                <div><dt>Presentación</dt><dd>Abono sólido en polvo</dd></div>
+                <div><dt>Precio</dt><dd class="price">$&nbsp;40.000</dd></div>
+              </dl>
+              <div class="product__actions">
+                <a class="btn btn--forest" href="https://www.abonoselbuensembrador.com/om40?lang=es">Comprar en la tienda</a>
+                <a class="link-arrow" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20pedir%20Abono%20Org%C3%A1nico-Mineral." target="_blank" rel="noopener">Pedir por WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <div class="rail__end">
+            <p>Precios publicados en la tienda en línea de Abonos El Buen Sembrador. Confírmalos al hacer tu pedido.</p>
+            <a class="link-arrow" href="#cultivos">¿No sabe cuál elegir?</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- PRODUCTOS -->
-    <section class="products" id="productos" aria-labelledby="products-title">
-      <div class="section-head">
-        <h2 id="products-title" class="section-title">Nuestros productos</h2>
-        <p class="section-head__aside">Abonos sólidos para el suelo y un fertilizante líquido. Compra en nuestra tienda en línea o pídelos por WhatsApp.</p>
-        <div class="category-links">
-          <a class="chip" href="https://www.abonoselbuensembrador.com/categories/abono?lang=es">Categoría Abono</a>
-          <a class="chip" href="https://www.abonoselbuensembrador.com/categories/fertilizante?lang=es">Categoría Fertilizante</a>
-        </div>
-      </div>
-
-      <article class="product" id="vinobiol" aria-labelledby="p-vinobiol" data-reveal>
-        <div class="product__media product__media--tall">
-          <picture>
-            <source srcset="assets/img/vinobiol.webp" type="image/webp">
-            <img src="assets/img/vinobiol.jpg" alt="Envase de Vinobiol, fertilizante orgánico mineral de El Buen Sembrador" width="700" height="1460" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="product__body">
-          <p class="product__cat">Fertilizante · Líquido</p>
-          <h3 id="p-vinobiol" class="product__name">Vinobiol</h3>
-          <p class="product__summary">Fertilizante orgánico mineral completamente soluble en agua, con fórmula enriquecida en potasio y oligoelementos.</p>
-          <ul class="product__specs">
-            <li>Estimula procesos de floración y fructificación.</li>
-            <li>Combate el estrés en cultivos y posee algunas propiedades fúngicas.</li>
-            <li>Se aplica directamente al suelo.</li>
-            <li>Usos: aguacate, café, lulo, hortalizas, aromáticas y medicinales, frijol, papa, pastos y leguminosas.</li>
-          </ul>
-          <dl class="product__meta">
-            <div><dt>Presentación</dt><dd>1, 4 y 20 litros</dd></div>
-            <div><dt>Precio 1 L</dt><dd class="price">$&nbsp;45.000</dd></div>
-          </dl>
-          <div class="product__actions">
-            <a class="btn btn--forest" href="https://www.abonoselbuensembrador.com/vb1l?lang=es">Comprar en la tienda</a>
-            <a class="link-arrow" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20pedir%20Vinobiol." target="_blank" rel="noopener">Pedir por WhatsApp</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="product product--flip" id="compostado" aria-labelledby="p-compostado" data-reveal>
-        <div class="product__media">
-          <picture>
-            <source srcset="assets/img/saco-abono-el-buen-sembrador.webp" type="image/webp">
-            <img src="assets/img/saco-abono-el-buen-sembrador.jpg" alt="Saco de 50 kilos de Abono Orgánico-Compostado El Buen Sembrador" width="852" height="846" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="product__body">
-          <p class="product__cat">Abono · Sólido</p>
-          <h3 id="p-compostado" class="product__name">Abono Orgánico-Compostado</h3>
-          <p class="product__summary">Abono sólido obtenido del proceso de compostaje de la mezcla de residuos de origen animal y vegetal.</p>
-          <ul class="product__specs">
-            <li>Materia orgánica madurada, sin olor, a temperatura ambiente, con humedad controlada y textura adecuada.</li>
-            <li>Es un mejorador o acondicionador de suelos.</li>
-            <li>Se usa para todo tipo de cultivos en las dosis y frecuencias acostumbradas.</li>
-          </ul>
-          <dl class="product__meta">
-            <div><dt>Presentación</dt><dd>Saco o costal de 50 kilos</dd></div>
-            <div><dt>Precio</dt><dd class="price">$&nbsp;22.000</dd></div>
-          </dl>
-          <div class="product__actions">
-            <a class="btn btn--forest" href="https://www.abonoselbuensembrador.com/abono-organico-compostado?lang=es">Comprar en la tienda</a>
-            <a class="link-arrow" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20pedir%20Abono%20Org%C3%A1nico-Compostado." target="_blank" rel="noopener">Pedir por WhatsApp</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="product" id="mineral" aria-labelledby="p-mineral" data-reveal>
-        <div class="product__media product__media--pair">
-          <picture>
-            <source srcset="assets/img/saco-abono-el-buen-sembrador.webp" type="image/webp">
-            <img src="assets/img/saco-abono-el-buen-sembrador.jpg" alt="Saco de Abono Orgánico-Mineral El Buen Sembrador" width="852" height="846" loading="lazy" decoding="async">
-          </picture>
-          <picture class="product__photo">
-            <source srcset="assets/img/abono-organico-mineral-bodega.webp" type="image/webp">
-            <img src="assets/img/abono-organico-mineral-bodega.jpg" alt="Sacos de Abono Orgánico-Mineral apilados en bodega" width="1280" height="960" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="product__body">
-          <p class="product__cat">Abono · Sólido en polvo</p>
-          <h3 id="p-mineral" class="product__name">Abono Orgánico-Mineral</h3>
-          <p class="product__summary">Aporta materia orgánica estabilizada, libre de nemátodos y microorganismos dañinos que puedan afectar su cultivo.</p>
-          <ul class="product__specs">
-            <li>Aporta nutrientes en cantidades suficientes, posibilitándole un óptimo rendimiento.</li>
-            <li>Permite incluso la disminución en el consumo o la sustitución parcial de fertilizante químico, por su alta capacidad de intercambio catiónico.</li>
-          </ul>
-          <dl class="product__meta">
-            <div><dt>Presentación</dt><dd>Abono sólido en polvo</dd></div>
-            <div><dt>Precio</dt><dd class="price">$&nbsp;40.000</dd></div>
-          </dl>
-          <div class="product__actions">
-            <a class="btn btn--forest" href="https://www.abonoselbuensembrador.com/om40?lang=es">Comprar en la tienda</a>
-            <a class="link-arrow" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20pedir%20Abono%20Org%C3%A1nico-Mineral." target="_blank" rel="noopener">Pedir por WhatsApp</a>
-          </div>
-        </div>
-      </article>
-      <p class="products__note">Precios publicados en la tienda en línea de Abonos El Buen Sembrador. Confírmalos al hacer tu pedido.</p>
-    </section>
-
-    <!-- CULTIVOS / NECESIDADES -->
-    <section class="needs" id="cultivos" aria-labelledby="needs-title">
-      <div class="needs__head">
+    <!-- 4 · SU CULTIVO: la elección viaja hasta el botón final -->
+    <section class="needs stratum" id="cultivos" data-sc-act="flow" aria-labelledby="needs-title">
+      <div class="needs__head" data-sc-stagger="70">
         <h2 id="needs-title" class="section-title">¿Qué necesita su cultivo?</h2>
-        <p>Elija la necesidad y le mostramos el producto que la atiende, según la ficha de cada uno.</p>
+        <p>Elija la necesidad y le mostramos el producto que la atiende, según la ficha de cada uno. Su elección queda lista en el mensaje de WhatsApp.</p>
       </div>
 
       <div class="needs__picker" data-tabs>
         <div class="needs__tabs" role="tablist" aria-label="Necesidades del cultivo">
-          <button role="tab" type="button" id="tab-suelo" aria-controls="panel-suelo" aria-selected="true">Mejorar y acondicionar el suelo</button>
-          <button role="tab" type="button" id="tab-nutricion" aria-controls="panel-nutricion" aria-selected="false" tabindex="-1">Nutrir con menos fertilizante químico</button>
-          <button role="tab" type="button" id="tab-floracion" aria-controls="panel-floracion" aria-selected="false" tabindex="-1">Floración, fructificación y estrés</button>
+          <span class="needs__marker" aria-hidden="true" data-tab-marker></span>
+          <button role="tab" type="button" id="tab-suelo" aria-controls="panel-suelo" aria-selected="true" data-need="Mejorar y acondicionar el suelo" data-product="Abono Orgánico-Compostado">Mejorar y acondicionar el suelo</button>
+          <button role="tab" type="button" id="tab-nutricion" aria-controls="panel-nutricion" aria-selected="false" tabindex="-1" data-need="Nutrir con menos fertilizante químico" data-product="Abono Orgánico-Mineral">Nutrir con menos fertilizante químico</button>
+          <button role="tab" type="button" id="tab-floracion" aria-controls="panel-floracion" aria-selected="false" tabindex="-1" data-need="Floración, fructificación y estrés" data-product="Vinobiol">Floración, fructificación y estrés</button>
         </div>
 
-        <div class="needs__panel" role="tabpanel" id="panel-suelo" aria-labelledby="tab-suelo" tabindex="0">
-          <p class="needs__product">Abono Orgánico-Compostado</p>
-          <p class="needs__why">Materia orgánica madurada que actúa como mejorador o acondicionador de suelos, para todo tipo de cultivos.</p>
-          <a class="link-arrow" href="#compostado">Ver el producto</a>
-        </div>
-        <div class="needs__panel" role="tabpanel" id="panel-nutricion" aria-labelledby="tab-nutricion" tabindex="0" hidden>
-          <p class="needs__product">Abono Orgánico-Mineral</p>
-          <p class="needs__why">Aporta materia orgánica estabilizada y nutrientes, y permite disminuir o sustituir parcialmente el fertilizante químico.</p>
-          <a class="link-arrow" href="#mineral">Ver el producto</a>
-        </div>
-        <div class="needs__panel" role="tabpanel" id="panel-floracion" aria-labelledby="tab-floracion" tabindex="0" hidden>
-          <p class="needs__product">Vinobiol</p>
-          <p class="needs__why">Estimula procesos de floración y fructificación y combate el estrés en cultivos. Se aplica directamente al suelo.</p>
-          <a class="link-arrow" href="#vinobiol">Ver el producto</a>
-        </div>
-      </div>
-
-      <div class="crops">
-        <h3 class="crops__title">Cultivos en los que se usa Vinobiol</h3>
-        <ul class="crops__list">
-          <li>Aguacate</li><li>Café</li><li>Lulo</li><li>Hortalizas</li><li>Aromáticas y medicinales</li><li>Frijol</li><li>Papa</li><li>Pastos y leguminosas</li>
-        </ul>
-        <div class="crops__mosaic">
-          <figure class="crops__fig crops__fig--a" data-reveal>
-            <picture>
-              <source srcset="assets/img/cultivo-cafe.webp" type="image/webp">
-              <img src="assets/img/cultivo-cafe.jpg" alt="Ramas de café cargadas de granos verdes" width="1070" height="804" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>Café</figcaption>
-          </figure>
-          <figure class="crops__fig crops__fig--b" data-reveal>
-            <picture>
-              <source srcset="assets/img/cultivo-hortalizas.webp" type="image/webp">
-              <img src="assets/img/cultivo-hortalizas.jpg" alt="Huerta de lechugas verdes y moradas sembradas en curvas" width="1400" height="1236" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>Hortalizas</figcaption>
-          </figure>
-          <figure class="crops__fig crops__fig--c" data-reveal>
-            <picture>
-              <source srcset="assets/img/cultivo-aguacate.webp" type="image/webp">
-              <img src="assets/img/cultivo-aguacate.jpg" alt="Árbol de aguacate con frutos" width="1600" height="1200" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>Aguacate</figcaption>
-          </figure>
+        <div class="needs__panels">
+          <div class="needs__panel" role="tabpanel" id="panel-suelo" aria-labelledby="tab-suelo" tabindex="0">
+            <p class="needs__product">Abono Orgánico-Compostado</p>
+            <p class="needs__why">Materia orgánica madurada que actúa como mejorador o acondicionador de suelos, para todo tipo de cultivos.</p>
+            <a class="link-arrow" href="#compostado">Ver el producto</a>
+          </div>
+          <div class="needs__panel" role="tabpanel" id="panel-nutricion" aria-labelledby="tab-nutricion" tabindex="0" hidden>
+            <p class="needs__product">Abono Orgánico-Mineral</p>
+            <p class="needs__why">Aporta materia orgánica estabilizada y nutrientes, y permite disminuir o sustituir parcialmente el fertilizante químico.</p>
+            <a class="link-arrow" href="#mineral">Ver el producto</a>
+          </div>
+          <div class="needs__panel" role="tabpanel" id="panel-floracion" aria-labelledby="tab-floracion" tabindex="0" hidden>
+            <p class="needs__product">Vinobiol</p>
+            <p class="needs__why">Estimula procesos de floración y fructificación y combate el estrés en cultivos. Se aplica directamente al suelo.</p>
+            <a class="link-arrow" href="#vinobiol">Ver el producto</a>
+          </div>
+          <p class="needs__carry" aria-live="polite" data-need-echo hidden>Queda anotado para su mensaje: <strong>Mejorar y acondicionar el suelo</strong>.</p>
         </div>
       </div>
     </section>
 
-    <!-- PROCESO / BIOTECNOLOGÍA -->
-    <section class="process" id="proceso" aria-labelledby="process-title">
-      <div class="process__inner">
+    <!-- 5 · CULTIVOS: los suyos, a la deriva dentro de sus marcos -->
+    <section class="crops stratum" id="usos" data-sc-act="flow" aria-labelledby="crops-title">
+      <div class="crops__head">
+        <h2 id="crops-title" class="section-title">Cultivos en los que se usa Vinobiol</h2>
+        <ul class="crops__list" data-sc-stagger="40">
+          <li>Aguacate</li><li>Café</li><li>Lulo</li><li>Hortalizas</li><li>Aromáticas y medicinales</li><li>Frijol</li><li>Papa</li><li>Pastos y leguminosas</li>
+        </ul>
+      </div>
+      <div class="crops__mosaic">
+        <figure class="crops__fig crops__fig--a">
+          <picture data-sc-parallax="-0.9">
+            <source srcset="assets/img/cultivo-cafe.webp" type="image/webp">
+            <img src="assets/img/cultivo-cafe.jpg" alt="Ramas de café cargadas de granos verdes" width="1070" height="804" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Café</figcaption>
+        </figure>
+        <figure class="crops__fig crops__fig--b">
+          <picture data-sc-parallax="0.7">
+            <source srcset="assets/img/cultivo-hortalizas.webp" type="image/webp">
+            <img src="assets/img/cultivo-hortalizas.jpg" alt="Huerta de lechugas verdes y moradas sembradas en curvas" width="1400" height="1236" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Hortalizas</figcaption>
+        </figure>
+        <figure class="crops__fig crops__fig--c">
+          <picture data-sc-parallax="-0.5">
+            <source srcset="assets/img/cultivo-aguacate.webp" type="image/webp">
+            <img src="assets/img/cultivo-aguacate.jpg" alt="Árbol de aguacate con frutos" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Aguacate</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 6 · PROCESO (el pico): el escenario se queda y el suelo cambia capa por capa -->
+    <section class="process" id="proceso" data-sc-act="pin" data-sc-span="5" aria-labelledby="process-title" data-strata>
+      <div data-sc-stage class="process__stage" data-layer="0">
+        <div class="process__grounds" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
         <div class="process__intro">
-          <h2 id="process-title" class="section-title">Compostaje avanzado: biotecnología aplicada al suelo</h2>
-          <p>Así describimos lo que sale de nuestro proceso y llega a su finca.</p>
-          <figure class="process__photo" data-reveal>
-            <picture>
-              <source srcset="assets/img/abono-organico-mineral-bodega.webp" type="image/webp">
-              <img src="assets/img/abono-organico-mineral-bodega.jpg" alt="Sacos de abono listos para despacho" width="1280" height="960" loading="lazy" decoding="async">
-            </picture>
-          </figure>
+          <h2 id="process-title" class="process__title">Compostaje avanzado: biotecnología aplicada al suelo</h2>
+          <p class="process__hint">Así describimos lo que sale de nuestro proceso y llega a su finca. Baje, capa por capa.</p>
         </div>
+
+        <div class="core" aria-hidden="true">
+          <span class="core__fill" data-core-fill></span>
+          <span class="core__mark"></span>
+          <span class="core__mark"></span>
+          <span class="core__mark"></span>
+          <span class="core__mark"></span>
+        </div>
+
+        <figure class="process__photo">
+          <picture>
+            <source srcset="assets/img/abono-organico-mineral-bodega.webp" type="image/webp">
+            <img src="assets/img/abono-organico-mineral-bodega.jpg" alt="Sacos de abono listos para despacho" width="1280" height="960" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+
         <ol class="strata" aria-label="Cualidades de nuestros abonos">
-          <li class="strata__layer" data-reveal>
+          <li class="strata__layer" data-layer-panel="1">
             <h3>Maduro de verdad</h3>
             <p>Materia orgánica madurada: sin olor, a temperatura ambiente, con humedad controlada y textura adecuada.</p>
           </li>
-          <li class="strata__layer" data-reveal>
+          <li class="strata__layer" data-layer-panel="2">
             <h3>Limpio para su cultivo</h3>
             <p>Materia orgánica estabilizada, libre de nemátodos y microorganismos dañinos.</p>
           </li>
-          <li class="strata__layer" data-reveal>
+          <li class="strata__layer" data-layer-panel="3">
             <h3>Más intercambio, menos químico</h3>
             <p>Alta capacidad de intercambio catiónico, que permite disminuir o sustituir parcialmente el fertilizante químico.</p>
           </li>
-          <li class="strata__layer" data-reveal>
+          <li class="strata__layer" data-layer-panel="4">
             <h3>Desde lo agroecológico</h3>
             <p>Paquetes y soluciones especializadas para planes de nutrición y fertilización orgánicos o más limpios.</p>
           </li>
@@ -331,23 +390,25 @@
       </div>
     </section>
 
-    <!-- EDITORIAL -->
-    <section class="story" id="trabajo" aria-labelledby="story-title">
-      <figure class="story__photo" data-reveal>
-        <picture>
-          <source srcset="assets/img/trabajo-campo-guatica.webp" type="image/webp">
-          <img src="assets/img/trabajo-campo-guatica.jpg" alt="Dos agricultores conversan en un cultivo durante una visita de campo en Guática, Risaralda" width="1600" height="890" loading="lazy" decoding="async">
-        </picture>
+    <!-- 7 · EN EL CAMPO: la foto se abre, los compromisos llegan uno a uno -->
+    <section class="story stratum" id="trabajo" data-sc-act="flow" aria-labelledby="story-title">
+      <figure class="story__photo">
+        <div class="story__wipe" data-sc-reveal="left" data-sc-reveal-at="0.08 0.4">
+          <picture>
+            <source srcset="assets/img/trabajo-campo-guatica.webp" type="image/webp">
+            <img src="assets/img/trabajo-campo-guatica.jpg" alt="Dos agricultores conversan en un cultivo durante una visita de campo en Guática, Risaralda" width="1600" height="890" loading="lazy" decoding="async">
+          </picture>
+        </div>
         <figcaption>Visita de campo en Guática, Risaralda.</figcaption>
       </figure>
       <div class="story__text">
         <h2 id="story-title" class="section-title">Tu satisfacción es nuestra prioridad</h2>
         <p class="story__lede">Muchas cosas nos hacen únicos; aquí destacamos cuatro:</p>
-        <ul class="story__list">
-          <li data-reveal>Ofertamos abonos orgánicos especiales, 100&nbsp;% madurados.</li>
-          <li data-reveal>Nuestros productos son accesibles para agricultores y empresarios del campo.</li>
-          <li data-reveal>Promovemos la reactivación y el mejoramiento del suelo, que inciden directamente en la productividad y rentabilidad de sus cultivos.</li>
-          <li data-reveal>Estamos comprometidos con la dignificación de la vida rural, la competitividad del agro y la cultura de producción más limpia.</li>
+        <ul class="story__list" data-sc-stagger="90">
+          <li>Ofertamos abonos orgánicos especiales, 100&nbsp;% madurados.</li>
+          <li>Nuestros productos son accesibles para agricultores y empresarios del campo.</li>
+          <li>Promovemos la reactivación y el mejoramiento del suelo, que inciden directamente en la productividad y rentabilidad de sus cultivos.</li>
+          <li>Estamos comprometidos con la dignificación de la vida rural, la competitividad del agro y la cultura de producción más limpia.</li>
         </ul>
       </div>
 
@@ -361,21 +422,31 @@
       </div>
     </section>
 
-    <!-- CONTACTO -->
-    <section class="contact" id="contacto" aria-labelledby="contact-title">
-      <div class="contact__inner">
-        <h2 id="contact-title" class="contact__title">Hablemos de su cultivo</h2>
-        <p class="contact__lead">Escríbanos o llámenos para cotizar, hacer su pedido o resolver dudas sobre nuestros productos.</p>
-        <div class="contact__actions">
-          <a class="btn btn--seed btn--lg" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20abonos." target="_blank" rel="noopener">
-            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8Z"/><path d="M9 9.5c.3 2.4 2.1 4.3 4.5 4.6"/></svg>
-            Escribir por WhatsApp
-          </a>
-          <a class="btn btn--ghost-light btn--lg" href="tel:+573137671300">Llamar al 313 767 1300</a>
+    <!-- 8 · GERMINACIÓN: la semilla brota junto a la acción -->
+    <section class="contact" id="contacto" data-sc-act="pin" data-sc-span="1.5" aria-labelledby="contact-title">
+      <div data-sc-stage class="contact__stage">
+        <div class="contact__inner">
+          <h2 id="contact-title" class="contact__title">Hablemos de su cultivo</h2>
+          <p class="contact__lead">Escríbanos o llámenos para cotizar, hacer su pedido o resolver dudas sobre nuestros productos.</p>
+          <p class="contact__carry" data-need-summary hidden>Su consulta: <strong data-need-summary-text></strong></p>
+          <div class="contact__actions">
+            <a class="btn btn--seed btn--lg" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20abonos." target="_blank" rel="noopener" data-wa-carry>
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8Z"/><path d="M9 9.5c.3 2.4 2.1 4.3 4.5 4.6"/></svg>
+              Escribir por WhatsApp
+            </a>
+            <a class="btn btn--ghost-light btn--lg" href="tel:+573137671300">Llamar al 313 767 1300</a>
+          </div>
+          <p class="contact__more">¿Prefiere comprar directamente? Visite la <a href="https://www.abonoselbuensembrador.com/categories/abono?lang=es">tienda en línea</a> o la <a href="https://www.abonoselbuensembrador.com/pagina/contacto?lang=es">página de contacto</a>.</p>
         </div>
-        <p class="contact__more">¿Prefiere comprar directamente? Visite la <a href="https://www.abonoselbuensembrador.com/categories/abono?lang=es">tienda en línea</a> o la <a href="https://www.abonoselbuensembrador.com/pagina/contacto?lang=es">página de contacto</a>.</p>
+
+        <svg class="sprout" viewBox="0 0 220 360" aria-hidden="true">
+          <path class="sprout__soil" d="M10 330 C 60 318, 160 318, 210 330"/>
+          <path class="sprout__stem" pathLength="1" d="M110 322 C 108 270, 116 220, 110 150 C 106 110, 112 80, 118 52"/>
+          <path class="sprout__leaf sprout__leaf--l" pathLength="1" d="M111 196 C 80 190, 50 165, 38 128 C 72 128, 102 150, 111 196 Z"/>
+          <path class="sprout__leaf sprout__leaf--r" pathLength="1" d="M112 132 C 140 120, 170 92, 176 58 C 146 64, 118 90, 112 132 Z"/>
+          <ellipse class="sprout__seed" cx="110" cy="326" rx="9" ry="7"/>
+        </svg>
       </div>
-      <div class="seeds seeds--contact" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
     </section>
   </main>
 
@@ -418,7 +489,7 @@
     <p class="site-footer__legal">© 2026 Abonos El Buen Sembrador. Todos los derechos reservados.</p>
   </footer>
 
-  <a class="wa-float" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20abonos." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <a class="wa-float" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20abonos." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-wa-carry>
     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8Z"/><path d="M9 9.5c.3 2.4 2.1 4.3 4.5 4.6"/></svg>
     <span>WhatsApp</span>
   </a>

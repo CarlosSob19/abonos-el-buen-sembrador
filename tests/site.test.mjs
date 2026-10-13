@@ -147,3 +147,30 @@ test('datos estructurados de negocio local sin datos inventados', () => {
   assert.equal(data.telephone, '+573137671300');
   assert.equal(data.address, undefined, 'no hay dirección pública en el sitio original');
 });
+
+test('CSP estricta: ningún atributo style en línea', () => {
+  assert.doesNotMatch(html, /\sstyle="/i, 'style-src self bloquearía los estilos en línea');
+});
+
+test('motor de scroll y arranque sin bloqueo de contenido', () => {
+  assert.ok(html.includes('assets/vendor/scrollcraft/scrollcraft.js'));
+  assert.ok(html.includes('assets/js/boot.js'));
+  assert.match(css, /html:not\(\.js\) \[data-sc-cue\]/, 'sin JS el contenido debe verse');
+  assert.ok(existsSync(join(root, 'assets/vendor/scrollcraft/scrollcraft.css')));
+});
+
+test('la necesidad elegida viaja al botón final de WhatsApp', () => {
+  assert.ok(html.match(/data-wa-carry/g)?.length >= 2);
+  for (const tab of tags('button').filter((b) => attr(b, 'role') === 'tab')) {
+    assert.ok(attr(tab, 'data-need') && attr(tab, 'data-product'), `pestaña sin datos: ${tab}`);
+  }
+  assert.match(js, /encodeURIComponent\(message\)/, 'el mensaje se codifica antes de ir a la URL');
+});
+
+test('actos fijados con escenario y el pico es el más largo', () => {
+  const spans = [...html.matchAll(/data-sc-act="(pin|pan)"[^>]*data-sc-span="([\d.]+)"/g)].map((m) => [m[1], +m[2]]);
+  assert.ok(spans.length >= 4);
+  const proceso = html.match(/id="proceso"[^>]*data-sc-span="([\d.]+)"/);
+  assert.ok(proceso, 'falta el acto del proceso');
+  assert.equal(Math.max(...spans.map((s) => s[1])), +proceso[1]);
+});

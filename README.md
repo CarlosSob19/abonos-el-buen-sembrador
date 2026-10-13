@@ -25,7 +25,14 @@ Requiere Node 20+. No hay paso de compilación: para publicar, sube `index.html`
 
 La tienda, el carrito y el pago siguen en la plataforma actual (Kolau). Los botones «Comprar en la tienda» enlazan a las fichas reales (`/vb1l`, `/abono-organico-compostado`, `/om40`) y a las categorías. Si este diseño se publica en el mismo dominio, hay que mantener esas rutas activas en la plataforma o redirigirlas.
 
+## Experiencia de scroll (v2)
+
+Gramática «Estratos» (scroll-craft): la página baja por un perfil de suelo. Motor: `assets/vendor/scrollcraft/` (sin modificar). Brief y curva emocional: `scrollcraft/builds/el-buen-sembrador/BRIEF.md`. Verificación visual: `node <skill>/scripts/shoot.mjs` con `bypassCSP` (la CSP del sitio bloquea los estilos que inyecta el arnés).
+
 ## Pendiente / limitaciones
+
+- **Recorte con alfa de manos y plántula para el hero** (capa de sujeto independiente): pendiente porque la GPU local estaba ocupada. El HTML ya reserva la capa en `.hero__frame`.
+- El arnés mide un «peor píxel» de 1.5:1 bajo el titular del hero en escritorio (granos claros de tierra y borde de una hoja); el contraste medio es 11:1.
 
 - Precios copiados del sitio el 13-10-2026; si cambian en la tienda, actualícelos en `index.html`.
 - No hay dirección, correo ni redes públicas en el sitio original, así que no se incluyeron.
