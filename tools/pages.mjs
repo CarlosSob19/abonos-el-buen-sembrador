@@ -182,6 +182,10 @@ for (const p of products) {
           <a class="link-arrow" href="${wa(p.askOther || `Hola, tengo una pregunta sobre ${p.name}.`)}" target="_blank" rel="noopener">${p.askOther ? 'Precio de 4 y 20 litros por WhatsApp' : 'Preguntar por WhatsApp'}</a>
         </div>
       </section>
+      <div class="buybar" data-buy>
+        <div class="buybar__info"><p class="buybar__name">${esc(p.name)}</p><p class="buybar__price">${money(p.price)}</p></div>
+        <button class="btn btn--seed" type="button" data-add="${p.id}">Agregar al carrito</button>
+      </div>
       <section class="pdp-details" aria-labelledby="pdp-ficha">
         <h2 id="pdp-ficha" class="pdp-details__title">Ficha del producto</h2>
         <dl class="pdp-details__list">
@@ -310,6 +314,7 @@ files['checkout.html'] = page({
           </fieldset>
           <p class="checkout__privacy">Sus datos se usan solo para gestionar este pedido: se envían por WhatsApp al ${WA.slice(2, 5)} ${WA.slice(5, 8)} ${WA.slice(8)} y no se guardan en este sitio.</p>
           <div class="quote__submit">
+            <p class="cart-total checkout__total"><span>Subtotal</span><strong data-cart-subtotal>$ 0</strong></p>
             <button class="btn btn--seed btn--lg" type="submit" disabled>
               <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8Z"/><path d="M9 9.5c.3 2.4 2.1 4.3 4.5 4.6"/></svg>
               Confirmar pedido por WhatsApp
