@@ -1,0 +1,85 @@
+{
+  "currency": "COP",
+  "maxQty": 10,
+  "categories": [
+    {
+      "slug": "abono",
+      "name": "Abono",
+      "title": "Abonos orgánicos",
+      "intro": "Abonos sólidos 100 % maduros, obtenidos por compostaje avanzado: sin olores, ni temperatura. Para jardinería, huertas y todo tipo de cultivos."
+    },
+    {
+      "slug": "fertilizante",
+      "name": "Fertilizante",
+      "title": "Fertilizantes",
+      "intro": "Fertilizante orgánico mineral completamente soluble en agua, enriquecido en potasio y oligoelementos."
+    }
+  ],
+  "products": [
+    {
+      "id": "vinobiol-1l",
+      "path": "vb1l",
+      "name": "Vinobiol",
+      "variant": "1 litro",
+      "category": "fertilizante",
+      "kind": "Fertilizante · Líquido",
+      "price": 45000,
+      "image": "vinobiol",
+      "imageW": 700,
+      "imageH": 1460,
+      "imageAlt": "Envase de Vinobiol, fertilizante orgánico mineral de El Buen Sembrador",
+      "summary": "Fertilizante orgánico mineral completamente soluble en agua, con fórmula enriquecida en potasio y oligoelementos.",
+      "specs": [
+        "Estimula procesos de floración y fructificación.",
+        "Combate el estrés en cultivos y posee algunas propiedades fúngicas.",
+        "Se aplica directamente al suelo."
+      ],
+      "uses": "Aguacate, café, lulo, hortalizas, aromáticas y medicinales, frijol, papa, pastos y leguminosas.",
+      "presentation": "1 litro. También en 4 y 20 litros: consulte precio por WhatsApp.",
+      "askOther": "Hola, quiero precio de Vinobiol en 4 o 20 litros."
+    },
+    {
+      "id": "abono-organico-compostado",
+      "path": "abono-organico-compostado",
+      "name": "Abono Orgánico-Compostado",
+      "variant": "Saco de 50 kilos",
+      "category": "abono",
+      "kind": "Abono · Sólido",
+      "price": 22000,
+      "image": "saco-abono-el-buen-sembrador",
+      "imageW": 852,
+      "imageH": 846,
+      "imageAlt": "Saco de 50 kilos de Abono Orgánico-Compostado El Buen Sembrador",
+      "summary": "Abono sólido obtenido del proceso de compostaje de la mezcla de residuos de origen animal y vegetal.",
+      "specs": [
+        "Materia orgánica madurada, sin olor, a temperatura ambiente, con humedad controlada y textura adecuada.",
+        "Es un mejorador o acondicionador de suelos.",
+        "Se usa para todo tipo de cultivos en las dosis y frecuencias acostumbradas."
+      ],
+      "uses": "Todo tipo de cultivos, jardinería y huertas.",
+      "presentation": "Saco o costal de 50 kilos."
+    },
+    {
+      "id": "abono-organico-mineral",
+      "path": "om40",
+      "name": "Abono Orgánico-Mineral",
+      "variant": "Sólido en polvo",
+      "category": "abono",
+      "kind": "Abono · Sólido en polvo",
+      "price": 40000,
+      "image": "saco-abono-el-buen-sembrador",
+      "imageW": 852,
+      "imageH": 846,
+      "imageAlt": "Saco de Abono Orgánico-Mineral El Buen Sembrador",
+      "photo": "abono-organico-mineral-bodega",
+      "photoAlt": "Sacos de Abono Orgánico-Mineral apilados en bodega",
+      "summary": "Aporta materia orgánica estabilizada, libre de nemátodos y microorganismos dañinos que puedan afectar su cultivo.",
+      "specs": [
+        "Aporta nutrientes en cantidades suficientes, posibilitándole un óptimo rendimiento.",
+        "Permite incluso la disminución en el consumo o la sustitución parcial de fertilizante químico, por su alta capacidad de intercambio catiónico."
+      ],
+      "uses": "Todo tipo de cultivos.",
+      "presentation": "Abono sólido en polvo."
+    }
+  ]
+}

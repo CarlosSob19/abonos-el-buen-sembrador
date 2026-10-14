@@ -27,7 +27,12 @@ const blocked = /^(tests|_research|node_modules|\.impeccable|\.git)(\/|\\|$)/;
 createServer(async (req, res) => {
   try {
     const path = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
-    const rel = normalize(path === '/' ? 'index.html' : path.slice(1));
+    let rel = normalize(path === '/' ? 'index.html' : path.slice(1));
+    // Direcciones limpias, como en Vercel: /vb1l -> vb1l.html
+    if (!extname(rel)) {
+      const html = `${rel.replace(/[\\/]+$/, '')}.html`;
+      try { if ((await stat(join(root, html))).isFile()) rel = html; } catch { /* se resuelve abajo */ }
+    }
     const file = join(root, rel);
     if (!file.startsWith(root) || rel.startsWith('..') || blocked.test(rel) || rel.split(sep).some((p) => p.startsWith('.'))) throw 0;
     if (!types[extname(file)] || !(await stat(file)).isFile()) throw 0;

@@ -311,6 +311,7 @@
       if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: name, ...props });
     } catch { /* la medición nunca debe romper la página */ }
   }
+  window.ebsTrack = track; // la tienda (store.js) registra sus eventos por aquí
   document.addEventListener('click', (event) => {
     const a = event.target.closest('a[href]');
     if (!a) return;

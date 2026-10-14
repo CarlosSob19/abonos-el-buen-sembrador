@@ -23,6 +23,7 @@ const assets = [
   ['assets/js/boot.js', 'js'],
   ['assets/vendor/scrollcraft/scrollcraft.js', 'js'],
   ['assets/js/main.js', 'js'],
+  ['assets/js/store.js', 'js'],
 ];
 let before = 0;
 let after = 0;
@@ -41,10 +42,12 @@ for (const [src, loader] of assets) {
   after += out.code.length;
 }
 
-// 3. HTML con referencias reescritas
-for (const page of ['index.html', '404.html']) {
+// 3. HTML con referencias reescritas (índice, 404 y páginas de la tienda)
+const pages = ['index.html', '404.html', ...JSON.parse(readFileSync('data/pages.json', 'utf8'))];
+for (const page of pages) {
   let html = readFileSync(page, 'utf8');
-  html = html.replace(/\s*<link rel="stylesheet" href="assets\/vendor\/scrollcraft\/scrollcraft\.css">/, '');
+  html = html.replace(/\s*<link rel="stylesheet" href="\/?assets\/vendor\/scrollcraft\/scrollcraft\.css">/, '');
+  mkdirSync(join(OUT, dirname(page)), { recursive: true });
   for (const [src, name] of Object.entries(hashed)) html = html.split(src).join(name);
   // Comentarios de autoría fuera; el contenido se publica intacto
   html = html.replace(/<!--(?!\[if)[\s\S]*?-->/g, '');
@@ -75,6 +78,7 @@ writeFileSync(join(OUT, '_headers'), [
 ].join('\n'));
 writeFileSync(join(OUT, 'vercel.json'), JSON.stringify({
   cleanUrls: true,
+  redirects: [{ source: '/pagina/contacto', destination: '/#contacto', permanent: true }],
   headers: [
     { source: '/(.*)', headers: Object.entries(security).map(([key, value]) => ({ key, value })) },
     { source: '/assets/(css|js|vendor|fonts)/(.*)', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
@@ -83,18 +87,9 @@ writeFileSync(join(OUT, 'vercel.json'), JSON.stringify({
     { source: '/(.*)', has: [{ type: 'host', value: '(?<sub>.*)\\.vercel\\.app' }], headers: [{ key: 'X-Robots-Tag', value: 'noindex' }] },
   ],
 }, null, 2));
-// Redirecciones: inactivas hasta decidir dónde vive la tienda (ver docs/datos-pendientes.md)
-writeFileSync(join(OUT, '_redirects'), [
-  '# Si la tienda Kolau pasa a tienda.abonoselbuensembrador.com, active estas líneas',
-  '# (quite el #) para no perder las direcciones que ya están en Google:',
-  '# /vb1l                       https://tienda.abonoselbuensembrador.com/vb1l 301',
-  '# /om40                       https://tienda.abonoselbuensembrador.com/om40 301',
-  '# /abono-organico-compostado  https://tienda.abonoselbuensembrador.com/abono-organico-compostado 301',
-  '# /categories/*               https://tienda.abonoselbuensembrador.com/categories/:splat 301',
-  '# /line_items                 https://tienda.abonoselbuensembrador.com/line_items 301',
-  '# /pagina/contacto            /#contacto 301',
-  '',
-].join('\n'));
+// La tienda es propia y conserva las direcciones de la anterior (/vb1l, /om40,
+// /abono-organico-compostado, /categories/*, /line_items). Solo el contacto cambia de lugar.
+writeFileSync(join(OUT, '_redirects'), ['/pagina/contacto  /#contacto  301', ''].join('\n'));
 
 if (!existsSync(join(OUT, 'index.html'))) throw new Error('build sin index.html');
 console.log(`dist/ listo. CSS+JS: ${(before / 1024).toFixed(0)} KB → ${(after / 1024).toFixed(0)} KB`);

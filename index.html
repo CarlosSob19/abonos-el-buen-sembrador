@@ -35,6 +35,7 @@
   <script src="assets/js/boot.js"></script>
   <script src="assets/vendor/scrollcraft/scrollcraft.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/store.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,10 +55,10 @@
  "@graph": [
   {
    "@type": "Product",
-   "name": "Vinobiol",
-   "sku": "vb1l",
+   "name": "Vinobiol (1 litro)",
+   "sku": "vinobiol-1l",
    "category": "Fertilizante",
-   "description": "Fertilizante orgánico mineral completamente soluble en agua, con fórmula enriquecida en potasio y oligoelementos. Presentación de 1 litro (también 4 y 20 litros).",
+   "description": "Fertilizante orgánico mineral completamente soluble en agua, con fórmula enriquecida en potasio y oligoelementos.",
    "image": "https://www.abonoselbuensembrador.com/assets/img/vinobiol.jpg",
    "brand": {
     "@type": "Brand",
@@ -65,7 +66,7 @@
    },
    "offers": {
     "@type": "Offer",
-    "url": "https://www.abonoselbuensembrador.com/vb1l?lang=es",
+    "url": "https://www.abonoselbuensembrador.com/vb1l",
     "priceCurrency": "COP",
     "price": "45000",
     "availability": "https://schema.org/InStock",
@@ -77,10 +78,10 @@
   },
   {
    "@type": "Product",
-   "name": "Abono Orgánico-Compostado",
+   "name": "Abono Orgánico-Compostado (Saco de 50 kilos)",
    "sku": "abono-organico-compostado",
    "category": "Abono",
-   "description": "Abono sólido obtenido del proceso de compostaje de la mezcla de residuos de origen animal y vegetal. Saco o costal de 50 kilos.",
+   "description": "Abono sólido obtenido del proceso de compostaje de la mezcla de residuos de origen animal y vegetal.",
    "image": "https://www.abonoselbuensembrador.com/assets/img/saco-abono-el-buen-sembrador.jpg",
    "brand": {
     "@type": "Brand",
@@ -88,7 +89,7 @@
    },
    "offers": {
     "@type": "Offer",
-    "url": "https://www.abonoselbuensembrador.com/abono-organico-compostado?lang=es",
+    "url": "https://www.abonoselbuensembrador.com/abono-organico-compostado",
     "priceCurrency": "COP",
     "price": "22000",
     "availability": "https://schema.org/InStock",
@@ -100,10 +101,10 @@
   },
   {
    "@type": "Product",
-   "name": "Abono Orgánico-Mineral",
-   "sku": "om40",
+   "name": "Abono Orgánico-Mineral (Sólido en polvo)",
+   "sku": "abono-organico-mineral",
    "category": "Abono",
-   "description": "Abono sólido en polvo que aporta materia orgánica estabilizada, libre de nemátodos y microorganismos dañinos.",
+   "description": "Aporta materia orgánica estabilizada, libre de nemátodos y microorganismos dañinos que puedan afectar su cultivo.",
    "image": "https://www.abonoselbuensembrador.com/assets/img/saco-abono-el-buen-sembrador.jpg",
    "brand": {
     "@type": "Brand",
@@ -111,7 +112,7 @@
    },
    "offers": {
     "@type": "Offer",
-    "url": "https://www.abonoselbuensembrador.com/om40?lang=es",
+    "url": "https://www.abonoselbuensembrador.com/om40",
     "priceCurrency": "COP",
     "price": "40000",
     "availability": "https://schema.org/InStock",
@@ -174,7 +175,7 @@
    "name": "¿Cómo compro y cómo pago?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Puede comprar en nuestra tienda en línea o pedir por WhatsApp al 313 767 1300. Aceptamos tarjetas."
+    "text": "Agregue los productos al carrito en nuestra tienda y confirme el pedido: le llega a nuestro WhatsApp y allí coordinamos el envío y el pago. Aceptamos tarjetas. También puede pedir directamente por WhatsApp al 313 767 1300."
    }
   },
   {
@@ -214,6 +215,10 @@
       </nav>
 
       <div class="site-header__actions">
+        <button class="cart-btn" type="button" data-cart-open aria-haspopup="dialog" aria-controls="carrito" aria-label="Carrito vacío">
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3 4h2.2l2.1 10.2a1.5 1.5 0 0 0 1.5 1.2h8.5a1.5 1.5 0 0 0 1.5-1.1L21 8H6.1"/><circle cx="9.5" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg>
+          <span class="cart-btn__count" data-cart-count hidden>0</span>
+        </button>
         <a class="header-phone" href="tel:+573137671300" aria-label="Llamar al 313 767 1300">
           <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 4h3.2l1.6 4.2-2 1.3a11 11 0 0 0 6.7 6.7l1.3-2 4.2 1.6V19a1.5 1.5 0 0 1-1.6 1.5A16 16 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4Z"/></svg>
           <span>313 767 1300</span>
@@ -342,8 +347,9 @@
             <h2 id="products-title" class="section-title">Nuestros productos</h2>
             <p>Abonos sólidos para el suelo y un fertilizante líquido. Compre en nuestra tienda en línea o pídalos por WhatsApp.</p>
             <div class="category-links">
-              <a class="chip" href="https://www.abonoselbuensembrador.com/categories/abono?lang=es">Categoría Abono</a>
-              <a class="chip" href="https://www.abonoselbuensembrador.com/categories/fertilizante?lang=es">Categoría Fertilizante</a>
+              <a class="chip" href="/categories/abono">Abonos</a>
+              <a class="chip" href="/categories/fertilizante">Fertilizantes</a>
+              <a class="chip" href="/tienda">Toda la tienda</a>
             </div>
           </div>
 
@@ -368,9 +374,12 @@
                 <div><dt>Presentación</dt><dd>1, 4 y 20 litros</dd></div>
                 <div><dt>Precio 1 L</dt><dd class="price">$&nbsp;45.000</dd></div>
               </dl>
-              <div class="product__actions">
-                <a class="btn btn--forest" href="https://www.abonoselbuensembrador.com/vb1l?lang=es">Comprar en la tienda</a>
-                <a class="link-arrow" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20pedir%20Vinobiol." target="_blank" rel="noopener">Pedir por WhatsApp</a>
+              <div class="product__actions" data-buy>
+                <label class="qty-select"><span class="visually-hidden">Cantidad de Vinobiol</span>
+                  <select data-qty-select><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select>
+                </label>
+                <button class="btn btn--seed" type="button" data-add="vinobiol-1l">Agregar al carrito</button>
+                <a class="link-arrow" href="/vb1l">Ver ficha</a>
               </div>
             </div>
           </article>
@@ -395,9 +404,12 @@
                 <div><dt>Presentación</dt><dd>Saco o costal de 50 kilos</dd></div>
                 <div><dt>Precio</dt><dd class="price">$&nbsp;22.000</dd></div>
               </dl>
-              <div class="product__actions">
-                <a class="btn btn--forest" href="https://www.abonoselbuensembrador.com/abono-organico-compostado?lang=es">Comprar en la tienda</a>
-                <a class="link-arrow" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20pedir%20Abono%20Org%C3%A1nico-Compostado." target="_blank" rel="noopener">Pedir por WhatsApp</a>
+              <div class="product__actions" data-buy>
+                <label class="qty-select"><span class="visually-hidden">Cantidad de Abono Orgánico-Compostado</span>
+                  <select data-qty-select><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select>
+                </label>
+                <button class="btn btn--seed" type="button" data-add="abono-organico-compostado">Agregar al carrito</button>
+                <a class="link-arrow" href="/abono-organico-compostado">Ver ficha</a>
               </div>
             </div>
           </article>
@@ -425,15 +437,19 @@
                 <div><dt>Presentación</dt><dd>Abono sólido en polvo</dd></div>
                 <div><dt>Precio</dt><dd class="price">$&nbsp;40.000</dd></div>
               </dl>
-              <div class="product__actions">
-                <a class="btn btn--forest" href="https://www.abonoselbuensembrador.com/om40?lang=es">Comprar en la tienda</a>
-                <a class="link-arrow" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20pedir%20Abono%20Org%C3%A1nico-Mineral." target="_blank" rel="noopener">Pedir por WhatsApp</a>
+              <div class="product__actions" data-buy>
+                <label class="qty-select"><span class="visually-hidden">Cantidad de Abono Orgánico-Mineral</span>
+                  <select data-qty-select><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select>
+                </label>
+                <button class="btn btn--seed" type="button" data-add="abono-organico-mineral">Agregar al carrito</button>
+                <a class="link-arrow" href="/om40">Ver ficha</a>
               </div>
             </div>
           </article>
 
           <div class="rail__end">
-            <p>Precios publicados en la tienda en línea de Abonos El Buen Sembrador. Confírmelos al hacer su pedido.</p>
+            <p>Precios en pesos colombianos. El costo de envío se confirma por WhatsApp según su municipio.</p>
+            <a class="link-arrow" href="/tienda">Ver toda la tienda</a>
             <a class="link-arrow" href="#cultivos">¿No sabe cuál elegir?</a>
           </div>
         </div>
@@ -634,7 +650,7 @@
         </details>
         <details class="faq__item" name="faq">
           <summary>¿Cómo compro y cómo pago?</summary>
-          <div class="faq__answer"><p>Puede comprar en nuestra <a href="https://www.abonoselbuensembrador.com/categories/abono?lang=es">tienda en línea</a> o pedir por WhatsApp al <a href="https://wa.me/573137671300" target="_blank" rel="noopener">313 767 1300</a>. Aceptamos tarjetas.</p></div>
+          <div class="faq__answer"><p>Agregue los productos al carrito en nuestra <a href="/tienda">tienda</a> y confirme el pedido: le llega a nuestro WhatsApp y allí coordinamos el envío y el pago. Aceptamos tarjetas. También puede pedir directamente por WhatsApp al <a href="https://wa.me/573137671300" target="_blank" rel="noopener">313 767 1300</a>.</p></div>
         </details>
         <details class="faq__item" name="faq">
           <summary>¿Venden por volumen a productores?</summary>
@@ -716,7 +732,7 @@
             </a>
             <a class="btn btn--ghost-light btn--lg" href="tel:+573137671300">Llamar al 313 767 1300</a>
           </div>
-          <p class="contact__more">¿Compra por volumen? <a href="#cotizar">Pida una cotización</a>. ¿Prefiere comprar directamente? Visite la <a href="https://www.abonoselbuensembrador.com/categories/abono?lang=es">tienda en línea</a> o la <a href="https://www.abonoselbuensembrador.com/pagina/contacto?lang=es">página de contacto</a>.</p>
+          <p class="contact__more">¿Compra por volumen? <a href="#cotizar">Pida una cotización</a>. ¿Prefiere comprar directamente? Visite nuestra <a href="/tienda">tienda</a>.</p>
         </div>
 
         <svg class="sprout" viewBox="0 0 220 360" aria-hidden="true">
@@ -751,10 +767,11 @@
       <nav aria-label="Tienda en línea">
         <h2 class="site-footer__h">Tienda</h2>
         <ul>
-          <li><a href="https://www.abonoselbuensembrador.com/vb1l?lang=es">Vinobiol 1L</a></li>
-          <li><a href="https://www.abonoselbuensembrador.com/abono-organico-compostado?lang=es">Abono Orgánico-Compostado</a></li>
-          <li><a href="https://www.abonoselbuensembrador.com/om40?lang=es">Abono Orgánico-Mineral</a></li>
-          <li><a href="https://www.abonoselbuensembrador.com/line_items?lang=es">Carrito de compras</a></li>
+          <li><a href="/tienda">Toda la tienda</a></li>
+          <li><a href="/vb1l">Vinobiol 1L</a></li>
+          <li><a href="/abono-organico-compostado">Abono Orgánico-Compostado</a></li>
+          <li><a href="/om40">Abono Orgánico-Mineral</a></li>
+          <li><a href="/carrito">Carrito de compras</a></li>
         </ul>
       </nav>
       <div>
@@ -762,13 +779,38 @@
         <ul>
           <li><a href="tel:+573137671300">313 767 1300</a></li>
           <li><a href="https://wa.me/573137671300" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="https://www.abonoselbuensembrador.com/pagina/contacto?lang=es">Página de contacto</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
       </div>
     </div>
     <p class="site-footer__legal">© 2026 Abonos El Buen Sembrador. Todos los derechos reservados.</p>
   </footer>
 
+<!-- tienda:inicio -->
+  <p class="visually-hidden" aria-live="polite" data-cart-live></p>
+  <dialog class="cart-drawer" id="carrito" aria-labelledby="carrito-titulo">
+    <div class="cart-drawer__panel">
+      <header class="cart-drawer__head">
+        <h2 id="carrito-titulo" class="cart-drawer__title">Su carrito</h2>
+        <button class="cart-drawer__close" type="button" data-cart-close aria-label="Cerrar carrito"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </header>
+      <div class="cart-drawer__body">
+        <div class="cart-empty" data-cart-empty>
+          <p class="cart-empty__title">Todavía no ha agregado productos.</p>
+          <a class="btn btn--forest" href="/tienda">Ver la tienda</a>
+        </div>
+        <ul class="lines" data-cart-lines data-compact></ul>
+      </div>
+      <footer class="cart-drawer__foot" data-cart-full hidden>
+        <p class="cart-total"><span>Subtotal</span><strong data-cart-subtotal>$ 0</strong></p>
+        <p class="cart-note">El costo de envío se confirma por WhatsApp según su municipio.</p>
+        <a class="btn btn--seed btn--lg cart-drawer__pay" href="/checkout">Continuar al pago</a>
+        <a class="link-arrow" href="/carrito">Ver carrito completo</a>
+      </footer>
+    </div>
+  </dialog>
+  <script type="application/json" id="catalogo">{"maxQty":10,"products":[{"id":"vinobiol-1l","path":"vb1l","name":"Vinobiol","variant":"1 litro","price":45000,"image":"vinobiol","imageW":700,"imageH":1460},{"id":"abono-organico-compostado","path":"abono-organico-compostado","name":"Abono Orgánico-Compostado","variant":"Saco de 50 kilos","price":22000,"image":"saco-abono-el-buen-sembrador","imageW":852,"imageH":846},{"id":"abono-organico-mineral","path":"om40","name":"Abono Orgánico-Mineral","variant":"Sólido en polvo","price":40000,"image":"saco-abono-el-buen-sembrador","imageW":852,"imageH":846}]}</script>
+<!-- tienda:fin -->
   <aside class="quick-contact" aria-label="Contacto rápido">
   <a class="wa-float" href="https://wa.me/573137671300?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20abonos." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-wa-carry>
     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8Z"/><path d="M9 9.5c.3 2.4 2.1 4.3 4.5 4.6"/></svg>

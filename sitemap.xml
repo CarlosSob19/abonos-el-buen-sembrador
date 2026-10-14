@@ -2,9 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.abonoselbuensembrador.com/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <image:image><image:loc>https://www.abonoselbuensembrador.com/assets/img/og-abonos.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.abonoselbuensembrador.com/tienda</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://www.abonoselbuensembrador.com/categories/abono</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://www.abonoselbuensembrador.com/categories/fertilizante</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://www.abonoselbuensembrador.com/vb1l</loc>
+    <lastmod>2026-10-14</lastmod>
     <image:image><image:loc>https://www.abonoselbuensembrador.com/assets/img/vinobiol.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.abonoselbuensembrador.com/abono-organico-compostado</loc>
+    <lastmod>2026-10-14</lastmod>
+    <image:image><image:loc>https://www.abonoselbuensembrador.com/assets/img/saco-abono-el-buen-sembrador.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.abonoselbuensembrador.com/om40</loc>
+    <lastmod>2026-10-14</lastmod>
     <image:image><image:loc>https://www.abonoselbuensembrador.com/assets/img/saco-abono-el-buen-sembrador.jpg</image:loc></image:image>
   </url>
 </urlset>

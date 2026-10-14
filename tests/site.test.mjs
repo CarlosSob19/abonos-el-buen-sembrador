@@ -71,7 +71,13 @@ test('todos los recursos locales referenciados existen en disco', () => {
     .map((s) => s.trim().split(' ')[0])
     .filter((u) => u && !/^(https?:|tel:|mailto:|#|data:)/.test(u));
   assert.ok(refs.length > 10);
-  for (const ref of refs) assert.ok(existsSync(join(root, ref)), `no existe: ${ref}`);
+  for (const ref of refs) {
+    // Direcciones limpias como en Vercel: /tienda -> tienda.html
+    const clean = ref.replace(/^\//, '').split('#')[0];
+    if (!clean) continue;
+    const ok = existsSync(join(root, clean)) || existsSync(join(root, `${clean}.html`));
+    assert.ok(ok, `no existe: ${ref}`);
+  }
   for (const m of css.matchAll(/url\("?([^")]+)"?\)/g)) {
     if (m[1].startsWith('data:')) continue;
     assert.ok(existsSync(join(root, 'assets/css', m[1])), `CSS: no existe ${m[1]}`);
@@ -92,20 +98,26 @@ test('canales de contacto reales: teléfono y WhatsApp del sitio original', () =
   assert.doesNotMatch(html, /instagram\.com|facebook\.com|tiktok\.com/, 'no inventar redes sociales');
 });
 
-test('los productos enlazan a sus fichas reales en la tienda y conservan sus precios', () => {
+test('tienda propia: fichas en las direcciones de la tienda anterior, precios reales y sin enlaces a Kolau', () => {
   const products = [
-    ['/vb1l', 'Vinobiol', '45.000'],
-    ['/abono-organico-compostado', 'Abono Orgánico-Compostado', '22.000'],
-    ['/om40', 'Abono Orgánico-Mineral', '40.000'],
+    ['vb1l', 'vinobiol-1l', 'Vinobiol', '45.000'],
+    ['abono-organico-compostado', 'abono-organico-compostado', 'Abono Orgánico-Compostado', '22.000'],
+    ['om40', 'abono-organico-mineral', 'Abono Orgánico-Mineral', '40.000'],
   ];
-  for (const [path, name, price] of products) {
-    assert.ok(html.includes(`${STORE}${path}`), `falta enlace a ${path}`);
-    assert.ok(html.includes(name), `falta ${name}`);
-    assert.ok(html.includes(price), `falta precio ${price}`);
+  for (const [path, id, name, price] of products) {
+    assert.ok(html.includes(`href="/${path}"`), `falta enlace a /${path}`);
+    assert.ok(html.includes(`data-add="${id}"`), `falta botón de agregar ${id}`);
+    assert.ok(html.includes(name) && html.includes(price), `falta ${name} ${price}`);
+    const pagina = readFileSync(join(root, `${path}.html`), 'utf8');
+    assert.ok(pagina.includes(`data-add="${id}"`) && pagina.includes(price), `ficha ${path} incompleta`);
   }
-  assert.ok(html.includes(`${STORE}/categories/abono`));
-  assert.ok(html.includes(`${STORE}/categories/fertilizante`));
-  assert.ok(html.includes(`${STORE}/pagina/contacto`));
+  for (const f of ['tienda', 'carrito', 'line_items', 'checkout', 'pedido', 'categories/abono', 'categories/fertilizante', 'pagina/contacto']) {
+    assert.ok(existsSync(join(root, `${f}.html`)), `falta ${f}.html`);
+  }
+  // Ningún enlace a la plataforma anterior: solo URLs canónicas sin ?lang=es
+  for (const f of ['index.html', '404.html', ...JSON.parse(readFileSync(join(root, 'data/pages.json'), 'utf8'))]) {
+    assert.doesNotMatch(readFileSync(join(root, f), 'utf8'), /\?lang=es/, `${f} enlaza a la tienda anterior`);
+  }
 });
 
 test('enlaces externos en nueva pestaña llevan rel="noopener"', () => {
@@ -191,7 +203,7 @@ test('datos estructurados: productos con precio real en COP y FAQ igual al texto
   const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
   const products = blocks.flatMap((b) => b['@graph'] || []).filter((n) => n['@type'] === 'Product');
   assert.deepEqual(products.map((p) => [p.name, p.offers.price, p.offers.priceCurrency]), [
-    ['Vinobiol', '45000', 'COP'], ['Abono Orgánico-Compostado', '22000', 'COP'], ['Abono Orgánico-Mineral', '40000', 'COP'],
+    ['Vinobiol (1 litro)', '45000', 'COP'], ['Abono Orgánico-Compostado (Saco de 50 kilos)', '22000', 'COP'], ['Abono Orgánico-Mineral (Sólido en polvo)', '40000', 'COP'],
   ]);
   const faq = blocks.find((b) => b['@type'] === 'FAQPage');
   const visible = [...html.matchAll(/<summary>([\s\S]*?)<\/summary>/g)].map((m) => m[1].trim());
